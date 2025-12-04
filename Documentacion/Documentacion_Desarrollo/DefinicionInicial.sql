@@ -12,14 +12,13 @@ BEGIN
         EmpresaId INT NOT NULL CONSTRAINT FK_Rol_Empresa FOREIGN KEY REFERENCES dbo.Empresa(EmpresaId),
         RolId INT NOT NULL CONSTRAINT PK_Rol PRIMARY KEY IDENTITY,
         Rol NVARCHAR(50) NULL,
-        Activo BIT NOT NULL CONSTRAINT DF_Rol_Activo DEFAULT (1),
-        FechaAltaAud            DATETIME2(7) CONSTRAINT DF_Rol_FechaAltaAud DEFAULT (GETDATE()) NOT NULL,
+        FechaAlta            DATETIME2(7) CONSTRAINT DF_Rol_FechaAlta DEFAULT (GETDATE()) NOT NULL,
         UsuarioAltaId           INT          NOT NULL,
-        FechaModificacionAud    DATETIME2(7) NULL,
+        FechaModificacion    DATETIME2(7) NULL,
         UsuarioModificacionId   INT          NULL,
-        FechaBajaAud            DATETIME2(7) NULL,
+        FechaBaja            DATETIME2(7) NULL,
         UsuarioBajaId           INT          NULL,
-        EstaActivoAud           BIT          CONSTRAINT DF_Rol_EstaActivoAud DEFAULT (1) NOT NULL
+        EstaActivo           BIT          CONSTRAINT DF_Rol_EstaActivoAud DEFAULT (1) NOT NULL
     );
 END;
 
