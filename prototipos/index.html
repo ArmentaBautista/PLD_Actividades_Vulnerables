@@ -52,9 +52,7 @@
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Nombre Completo</th>
                                     <th>Email</th>
-                                    <th>Rol</th>
                                     <th>Estado</th>
                                     <th>Fecha Creación</th>
                                     <th>Acciones</th>
@@ -63,23 +61,9 @@
                             <tbody id="usuarios-table-body">
                                 <tr>
                                     <td>U001</td>
-                                    <td>Juan Carlos López</td>
                                     <td>jc.lopez@empresa.com</td>
-                                    <td><span class="badge badge-admin">Admin</span></td>
                                     <td><span class="badge badge-active">Activo</span></td>
                                     <td>2025-01-15</td>
-                                    <td class="actions">
-                                        <button class="btn-small btn-edit">✏️ Editar</button>
-                                        <button class="btn-small btn-delete">🗑️ Eliminar</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>U002</td>
-                                    <td>María González Torres</td>
-                                    <td>m.gonzalez@empresa.com</td>
-                                    <td><span class="badge badge-analyst">Analista</span></td>
-                                    <td><span class="badge badge-active">Activo</span></td>
-                                    <td>2025-01-20</td>
                                     <td class="actions">
                                         <button class="btn-small btn-edit">✏️ Editar</button>
                                         <button class="btn-small btn-delete">🗑️ Eliminar</button>
@@ -95,50 +79,19 @@
                             <span class="close">&times;</span>
                             <h3 id="modal-title-usuario">Nuevo Usuario</h3>
                             <form id="form-usuario">
-                                <div class="form-row">
-                                    <div class="form-group">
-                                        <label for="usuario-nombre">Nombre Completo *</label>
-                                        <input type="text" id="usuario-nombre" name="nombre" required placeholder="Ej: Juan Carlos López">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="usuario-email">Email *</label>
-                                        <input type="email" id="usuario-email" name="email" required placeholder="usuario@empresa.com">
-                                    </div>
-                                </div>
-
-                                <div class="form-row">
-                                    <div class="form-group">
-                                        <label for="usuario-telefono">Teléfono</label>
-                                        <input type="tel" id="usuario-telefono" name="telefono" placeholder="+52 1234567890">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="usuario-rol">Rol *</label>
-                                        <select id="usuario-rol" name="rol" required>
-                                            <option value="">Seleccionar rol</option>
-                                            <option value="admin">Administrador</option>
-                                            <option value="analyst">Analista de Cumplimiento</option>
-                                            <option value="auditor">Auditor</option>
-                                            <option value="viewer">Visualizador</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="form-row">
-                                    <div class="form-group">
-                                        <label for="usuario-password">Contraseña *</label>
-                                        <input type="password" id="usuario-password" name="password" required placeholder="Ingrese contraseña segura">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="usuario-confirm-password">Confirmar Contraseña *</label>
-                                        <input type="password" id="usuario-confirm-password" name="confirm-password" required placeholder="Confirme la contraseña">
-                                    </div>
+                                <div class="form-group">
+                                    <label for="usuario-email">Email *</label>
+                                    <input type="email" id="usuario-email" name="email" required placeholder="usuario@empresa.com">
                                 </div>
 
                                 <div class="form-group">
-                                    <label>
-                                        <input type="checkbox" id="usuario-activo" name="activo" checked>
-                                        Usuario Activo
-                                    </label>
+                                    <label for="usuario-password">Contraseña *</label>
+                                    <input type="password" id="usuario-password" name="password" required placeholder="Ingrese contraseña segura">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="usuario-confirm-password">Confirmar Contraseña *</label>
+                                    <input type="password" id="usuario-confirm-password" name="confirm-password" required placeholder="Confirme la contraseña">
                                 </div>
 
                                 <div class="form-actions">
@@ -166,8 +119,6 @@
                                     <th>Razón Social</th>
                                     <th>Tipo Actividad</th>
                                     <th>Riesgo</th>
-                                    <th>Estado KYC</th>
-                                    <th>PEP</th>
                                     <th>Acciones</th>
                                 </tr>
                             </thead>
@@ -177,20 +128,6 @@
                                     <td>Casino Royal México S.A. de C.V.</td>
                                     <td><span class="badge badge-gaming">Juegos con Apuesta</span></td>
                                     <td><span class="badge badge-high">Alto</span></td>
-                                    <td><span class="badge badge-complete">Completo</span></td>
-                                    <td>No</td>
-                                    <td class="actions">
-                                        <button class="btn-small btn-view">👁️ Ver</button>
-                                        <button class="btn-small btn-edit">✏️ Editar</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>XYZ789456ABC</td>
-                                    <td>Desarrollos Inmobiliarios Premium S.A.</td>
-                                    <td><span class="badge badge-real-estate">Bienes Inmuebles</span></td>
-                                    <td><span class="badge badge-medium">Medio</span></td>
-                                    <td><span class="badge badge-pending">Pendiente</span></td>
-                                    <td>Sí</td>
                                     <td class="actions">
                                         <button class="btn-small btn-view">👁️ Ver</button>
                                         <button class="btn-small btn-edit">✏️ Editar</button>
@@ -210,27 +147,75 @@
                                     <button type="button" class="tab-btn active" data-tab="info-general">Información General</button>
                                     <button type="button" class="tab-btn" data-tab="actividad">Actividad Vulnerable</button>
                                     <button type="button" class="tab-btn" data-tab="ubicacion">Ubicación</button>
-                                    <button type="button" class="tab-btn" data-tab="beneficiarios">Beneficiarios</button>
                                 </div>
 
                                 <!-- Tab: Información General -->
                                 <div class="tab-content active" id="tab-info-general">
-                                    <div class="form-row">
-                                        <div class="form-group">
-                                            <label for="empresa-rfc">RFC *</label>
-                                            <input type="text" id="empresa-rfc" name="rfc" required placeholder="ABC123456XYZ" maxlength="13">
+                                    <h4>Tipo de Empresa</h4>
+                                    <div class="form-group">
+                                        <label for="empresa-tipo-cliente">Tipo *</label>
+                                        <select id="empresa-tipo-cliente" name="tipo_cliente" required>
+                                            <option value="">Seleccionar</option>
+                                            <option value="pf">Persona Física</option>
+                                            <option value="pm">Persona Moral</option>
+                                        </select>
+                                    </div>
+
+                                    <!-- Campos Persona Física -->
+                                    <div id="campos-pf" style="display: none;">
+                                        <h4>Datos Persona Física</h4>
+                                        <div class="form-row">
+                                            <div class="form-group">
+                                                <label for="empresa-nombre">Nombre *</label>
+                                                <input type="text" id="empresa-nombre" name="nombre" placeholder="Nombre">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="empresa-paterno">Apellido Paterno *</label>
+                                                <input type="text" id="empresa-paterno" name="paterno" placeholder="Apellido Paterno">
+                                            </div>
                                         </div>
-                                        <div class="form-group">
-                                            <label for="empresa-razon-social">Razón Social *</label>
-                                            <input type="text" id="empresa-razon-social" name="razon_social" required placeholder="Nombre legal de la empresa">
+
+                                        <div class="form-row">
+                                            <div class="form-group">
+                                                <label for="empresa-materno">Apellido Materno *</label>
+                                                <input type="text" id="empresa-materno" name="materno" placeholder="Apellido Materno">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="empresa-fecha-nac">Fecha de Nacimiento *</label>
+                                                <input type="date" id="empresa-fecha-nac" name="fecha_nac" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-row">
+                                            <div class="form-group">
+                                                <label for="empresa-rfc">RFC *</label>
+                                                <input type="text" id="empresa-rfc" name="rfc" placeholder="RFC" maxlength="13">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="empresa-curp">CURP *</label>
+                                                <input type="text" id="empresa-curp" name="curp" placeholder="CURP" maxlength="18">
+                                            </div>
                                         </div>
                                     </div>
 
-                                    <div class="form-row">
-                                        <div class="form-group">
-                                            <label for="empresa-fecha-constitucion">Fecha de Constitución *</label>
-                                            <input type="date" id="empresa-fecha-constitucion" name="fecha_constitucion" required>
+                                    <!-- Campos Persona Moral -->
+                                    <div id="campos-pm" style="display: none;">
+                                        <h4>Datos Persona Moral</h4>
+                                        <div class="form-row">
+                                            <div class="form-group">
+                                                <label for="empresa-razon-social">Razón Social *</label>
+                                                <input type="text" id="empresa-razon-social" name="razon_social" placeholder="Nombre legal de la empresa">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="empresa-fecha-constitucion">Fecha de Constitución *</label>
+                                                <input type="date" id="empresa-fecha-constitucion" name="fecha_constitucion" required>
+                                            </div>
                                         </div>
+                                    </div>
+
+                                    <!-- Campos Generales -->
+                                    <h4>Datos Generales</h4>
+                                    <div class="form-row">
                                         <div class="form-group">
                                             <label for="empresa-nacionalidad">Nacionalidad *</label>
                                             <select id="empresa-nacionalidad" name="nacionalidad" required>
@@ -239,165 +224,151 @@
                                                 <option value="extranjera">Extranjera</option>
                                             </select>
                                         </div>
-                                    </div>
-
-                                    <div class="form-row">
                                         <div class="form-group">
                                             <label for="empresa-email">Email *</label>
                                             <input type="email" id="empresa-email" name="email" required placeholder="contacto@empresa.com">
                                         </div>
-                                        <div class="form-group">
-                                            <label for="empresa-telefono">Teléfono *</label>
-                                            <input type="tel" id="empresa-telefono" name="telefono" required placeholder="+52 1234567890">
-                                        </div>
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="empresa-sitio-web">Sitio Web</label>
-                                        <input type="url" id="empresa-sitio-web" name="sitio_web" placeholder="https://www.empresa.com">
+                                        <label for="empresa-telefono">Teléfono *</label>
+                                        <input type="tel" id="empresa-telefono" name="telefono" required placeholder="+52 1234567890">
                                     </div>
                                 </div>
 
                                 <!-- Tab: Actividad Vulnerable -->
                                 <div class="tab-content" id="tab-actividad">
-                                    <div class="form-row">
-                                        <div class="form-group">
-                                            <label for="empresa-tipo-actividad">Tipo de Actividad Vulnerable *</label>
-                                            <select id="empresa-tipo-actividad" name="tipo_actividad" required>
-                                                <option value="">Seleccionar</option>
-                                                <option value="i">I - Juegos con apuesta</option>
-                                                <option value="ii">II - Tarjetas y cupones de valor</option>
-                                                <option value="iii">III - Cheques de viajero</option>
-                                                <option value="iv">IV - Mutuo, préstamo o crédito</option>
-                                                <option value="v">V - Bienes inmuebles</option>
-                                                <option value="vi">VI - Metales y piedras preciosas</option>
-                                                <option value="vii">VII - Obras de arte</option>
-                                                <option value="viii">VIII - Vehículos</option>
-                                                <option value="ix">IX - Traslado o custodia de valores</option>
-                                                <option value="x">X - Servicios de blindaje</option>
-                                                <option value="xi">XI - Servicios de fe pública</option>
-                                                <option value="xii">XII - Arrendamiento</option>
-                                                <option value="xiii">XIII - Servicios profesionales</option>
-                                                <option value="xiv">XIV - Comercio exterior</option>
-                                                <option value="xv">XV - Donativos</option>
-                                                <option value="xvi">XVI - Intercambio de activos virtuales</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="empresa-subtipo-actividad">Sub Tipo de Actividad *</label>
-                                            <select id="empresa-subtipo-actividad" name="subtipo_actividad" required>
-                                                <option value="">Seleccionar tipo primero</option>
-                                            </select>
-                                        </div>
-                                    </div>
-
                                     <div class="form-group">
-                                        <label for="empresa-descripcion-actividad">Descripción de la Actividad</label>
-                                        <textarea id="empresa-descripcion-actividad" name="descripcion_actividad" rows="4" placeholder="Detalle cómo realiza la actividad vulnerable"></textarea>
-                                    </div>
-
-                                    <div class="form-row">
-                                        <div class="form-group">
-                                            <label for="empresa-clasificacion-riesgo">Clasificación de Riesgo *</label>
-                                            <select id="empresa-clasificacion-riesgo" name="clasificacion_riesgo" required>
-                                                <option value="">Seleccionar</option>
-                                                <option value="bajo">Bajo</option>
-                                                <option value="medio">Medio</option>
-                                                <option value="alto">Alto</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>
-                                                <input type="checkbox" id="empresa-es-pep" name="es_pep">
-                                                Es Persona Políticamente Expuesta (PEP)
-                                            </label>
-                                        </div>
+                                        <label for="empresa-tipo-actividad">Tipo Actividad Vulnerable *</label>
+                                        <select id="empresa-tipo-actividad" name="tipo_actividad" required>
+                                            <option value="">Seleccionar Actividad</option>
+                                            <option value="i">I - Juegos con apuesta</option>
+                                            <option value="ii">II - Tarjetas y cupones de valor</option>
+                                            <option value="iii">III - Cheques de viajero</option>
+                                            <option value="iv">IV - Mutuo, préstamo o crédito</option>
+                                            <option value="v">V - Bienes inmuebles</option>
+                                            <option value="vi">VI - Metales y piedras preciosas</option>
+                                            <option value="vii">VII - Obras de arte</option>
+                                            <option value="viii">VIII - Vehículos</option>
+                                            <option value="ix">IX - Traslado o custodia de valores</option>
+                                            <option value="x">X - Servicios de blindaje</option>
+                                            <option value="xi">XI - Servicios de fe pública</option>
+                                            <option value="xii">XII - Arrendamiento</option>
+                                            <option value="xiii">XIII - Servicios profesionales</option>
+                                            <option value="xiv">XIV - Comercio exterior</option>
+                                            <option value="xv">XV - Donativos</option>
+                                            <option value="xvi">XVI - Intercambio de activos virtuales</option>
+                                        </select>
+                                        <label for="empresa-subtipo-actividad">SubTipo Actividad Vulnerable *</label>
+                                        <select id="empresa-subtipo-actividad" name="subtipo_actividad" required>
+                                            <option value="">Seleccionar Actividad</option>
+                                            <option value="i">juegos con apuesta</option>
+                                            <option value="ii">concursos o sorteos</option>
+                                            <option value="ii">venta de boletos, fichas o comprobantes</option>
+                                            <option value="ii">Tarjetas prepagadas</option>
+                                            <option value="ii">Tarjetas de servicios</option>
+                                            <option value="ii">Cupones</option>
+                                            <option value="ii">Monederos electrónicos u otros instrumentos que almacenen valor monetario.</option>
+                                            <option value="ii">mutuos</option>
+                                            <option value="ii">préstamos o créditos</option>
+                                            <option value="ii">desarrollo de bienes inmuebles,</option>
+                                            <option value="ii">intermediación </option>
+                                            <option value="ii">comercialización </option>
+                                            <option value="ii">terrestres</option>
+                                            <option value="ii">aéreos</option>
+                                            <option value="ii">marítimos</option>
+                                            <option value="iii">dinero</option>
+                                            <option value="iv">valores</option>
+                                            <option value="v">metales preciosos</option>
+                                            <option value="vi">joyas u objetos de valor.</option>
+                                            <option value="vii">vehículos</option>
+                                            <option value="viii">inmuebles</option>
+                                            <option value="ix">otros bienes</option>
+                                            <option value="x">Notarios</option>
+                                            <option value="xi">Corredores públicos,</option>
+                                            <option value="xii">Fedatarios públicos en general, en actos específicos detallados en la ley (compraventa, constitución de derechos, fideicomisos, etc.)</option>
+                                            <option value="xiii">compra/venta de bienes</option>
+                                            <option value="xiv">administración y transferencia de valores</option>
+                                            <option value="xv">organización de aportaciones de capital,</option>
+                                            <option value="xvi">reación de personas morales, fideicomisos u otros vehículos corporativos</option>
+                                        </select>
                                     </div>
                                 </div>
 
                                 <!-- Tab: Ubicación -->
                                 <div class="tab-content" id="tab-ubicacion">
+                                    <h4>Domicilio</h4>
+                                    <div class="form-group">
+                                        <label for="empresa-calle">Calle *</label>
+                                        <input type="text" id="empresa-calle" name="calle" required placeholder="Nombre de la calle">
+                                    </div>
+
                                     <div class="form-row">
                                         <div class="form-group">
-                                            <label for="empresa-calle">Calle y Número *</label>
-                                            <input type="text" id="empresa-calle" name="calle" required placeholder="Ej: Avenida Principal 123">
+                                            <label for="empresa-entre-calles">Entre Calles *</label>
+                                            <input type="text" id="empresa-entre-calles" name="entre_calles" required placeholder="Entre calles">
                                         </div>
                                         <div class="form-group">
-                                            <label for="empresa-departamento">Apto/Depto/Oficina</label>
-                                            <input type="text" id="empresa-departamento" name="departamento" placeholder="Ej: Piso 5, Oficina 505">
+                                            <label for="empresa-numero-exterior">Número Exterior *</label>
+                                            <input type="text" id="empresa-numero-exterior" name="numero_exterior" required placeholder="Número exterior">
                                         </div>
                                     </div>
 
                                     <div class="form-row">
                                         <div class="form-group">
-                                            <label for="empresa-ciudad">Ciudad/Municipio *</label>
-                                            <input type="text" id="empresa-ciudad" name="ciudad" required placeholder="Ej: Ciudad de México">
+                                            <label for="empresa-numero-interior">Número Interior</label>
+                                            <input type="text" id="empresa-numero-interior" name="numero_interior" placeholder="Número interior">
                                         </div>
                                         <div class="form-group">
-                                            <label for="empresa-estado">Estado/Provincia *</label>
-                                            <select id="empresa-estado" name="estado" required>
-                                                <option value="">Seleccionar Estado</option>
-                                                <option value="cdmx">Ciudad de México</option>
-                                                <option value="estado-mexico">Estado de México</option>
-                                                <option value="jalisco">Jalisco</option>
-                                                <option value="otro">Otro</option>
+                                            <label for="empresa-codigo-postal">Código Postal *</label>
+                                            <input type="text" id="empresa-codigo-postal" name="codigo_postal" required placeholder="06500" maxlength="5">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="empresa-referencias">Referencias</label>
+                                        <textarea id="empresa-referencias" name="referencias" rows="2" placeholder="Referencias adicionales del domicilio"></textarea>
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label for="empresa-asentamiento">Asentamiento (Catálogo) *</label>
+                                            <select id="empresa-asentamiento" name="asentamiento" required>
+                                                <option value="">Seleccionar Asentamiento</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="empresa-ciudad">Ciudad *</label>
+                                            <select id="empresa-ciudad" name="ciudad" required>
+                                                <option value="">Seleccionar Ciudad</option>
                                             </select>
                                         </div>
                                     </div>
 
                                     <div class="form-row">
                                         <div class="form-group">
-                                            <label for="empresa-codigo-postal">Código Postal *</label>
-                                            <input type="text" id="empresa-codigo-postal" name="codigo_postal" required placeholder="06500" maxlength="5">
+                                            <label for="empresa-municipio">Municipio *</label>
+                                            <select id="empresa-municipio" name="municipio" required>
+                                                <option value="">Seleccionar Municipio</option>
+                                            </select>
                                         </div>
                                         <div class="form-group">
-                                            <label for="empresa-pais">País *</label>
-                                            <select id="empresa-pais" name="pais" required>
-                                                <option value="mexico">México</option>
-                                                <option value="otro">Otro país</option>
+                                            <label for="empresa-estado">Estado *</label>
+                                            <select id="empresa-estado" name="estado" required>
+                                                <option value="">Seleccionar Estado</option>
+                                                <option value="1">Ciudad de México</option>
+                                                <option value="2">Estado de México</option>
+                                                <option value="3">Jalisco</option>
                                             </select>
                                         </div>
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="empresa-comprobante-domicilio">Comprobante de Domicilio (< 3 meses) *</label>
-                                        <input type="file" id="empresa-comprobante-domicilio" name="comprobante_domicilio" required accept=".pdf,.jpg,.png">
+                                        <label for="empresa-pais">País *</label>
+                                        <select id="empresa-pais" name="pais" required>
+                                            <option value="1">México</option>
+                                        </select>
                                     </div>
-                                </div>
-
-                                <!-- Tab: Beneficiarios Controladores -->
-                                <div class="tab-content" id="tab-beneficiarios">
-                                    <h4>Beneficiarios Controladores (≥ 25% participación)</h4>
-                                    <div id="beneficiarios-list">
-                                        <div class="beneficiario-item">
-                                            <div class="form-row">
-                                                <div class="form-group">
-                                                    <label>Nombre del Beneficiario *</label>
-                                                    <input type="text" class="beneficiario-nombre" placeholder="Nombre completo" required>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>% Participación *</label>
-                                                    <input type="number" class="beneficiario-participacion" placeholder="25" min="0" max="100" required>
-                                                </div>
-                                            </div>
-                                            <div class="form-row">
-                                                <div class="form-group">
-                                                    <label>RFC/CURP *</label>
-                                                    <input type="text" class="beneficiario-rfc" placeholder="RFC o CURP" required>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>Nacionalidad *</label>
-                                                    <select class="beneficiario-nacionalidad" required>
-                                                        <option value="">Seleccionar</option>
-                                                        <option value="mexico">Mexicano</option>
-                                                        <option value="extranjero">Extranjero</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <button type="button" class="btn-small btn-delete btn-remove-beneficiario">Remover</button>
-                                        </div>
-                                    </div>
-                                    <button type="button" class="btn btn-secondary" id="btn-add-beneficiario">+ Agregar Beneficiario</button>
                                 </div>
 
                                 <div class="form-actions">
@@ -424,7 +395,6 @@
                                 <option value="">Todos</option>
                                 <option value="pf">Persona Física</option>
                                 <option value="pm">Persona Moral</option>
-                                <option value="fideicomiso">Fideicomiso</option>
                             </select>
                         </div>
                         <div class="filter-group">
@@ -436,15 +406,6 @@
                                 <option value="alto">Alto</option>
                             </select>
                         </div>
-                        <div class="filter-group">
-                            <label>Estado KYC:</label>
-                            <select id="filter-kyc">
-                                <option value="">Todos</option>
-                                <option value="completo">Completo</option>
-                                <option value="pendiente">Pendiente</option>
-                                <option value="incompleto">Incompleto</option>
-                            </select>
-                        </div>
                     </div>
 
                     <!-- Tabla de Clientes -->
@@ -454,11 +415,9 @@
                                 <tr>
                                     <th>ID Cliente</th>
                                     <th>Nombre / Razón Social</th>
-                                    <th>Tipo Cliente</th>
                                     <th>RFC/CURP</th>
                                     <th>Riesgo</th>
                                     <th>KYC</th>
-                                    <th>PEP</th>
                                     <th>Acciones</th>
                                 </tr>
                             </thead>
@@ -466,24 +425,9 @@
                                 <tr>
                                     <td>C001</td>
                                     <td>Roberto Martínez González</td>
-                                    <td><span class="badge badge-pf">Persona Física</span></td>
                                     <td>MAGR800515XXX</td>
                                     <td><span class="badge badge-medium">Medio</span></td>
                                     <td><span class="badge badge-complete">Completo</span></td>
-                                    <td>No</td>
-                                    <td class="actions">
-                                        <button class="btn-small btn-view">👁️ Ver</button>
-                                        <button class="btn-small btn-edit">✏️ Editar</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>C002</td>
-                                    <td>Comercial México International S.A.S.</td>
-                                    <td><span class="badge badge-pm">Persona Moral</span></td>
-                                    <td>CMI234567XYZ</td>
-                                    <td><span class="badge badge-high">Alto</span></td>
-                                    <td><span class="badge badge-pending">Pendiente</span></td>
-                                    <td>Sí</td>
                                     <td class="actions">
                                         <button class="btn-small btn-view">👁️ Ver</button>
                                         <button class="btn-small btn-edit">✏️ Editar</button>
@@ -508,330 +452,447 @@
 
                                 <!-- Tab: Información del Cliente -->
                                 <div class="tab-content active" id="tab-cliente-info">
+                                    <h4>Datos Personales</h4>
+
+                                    <h4>Tipo de Cliente</h4>
+                                    <div class="form-group">
+                                        <label for="empresa-tipo-cliente2">Tipo *</label>
+                                        <select id="empresa-tipo-cliente2" name="tipo_cliente" required>
+                                            <option value="">Seleccionar</option>
+                                            <option value="pf">Persona Física</option>
+                                            <option value="pm">Persona Moral</option>
+                                        </select>
+                                    </div>
+
+                                    <!-- Campos Persona Física -->
+                                    <div id="campos-pf2" style="display: none;">
+                                        <h4>Datos Persona Física</h4>
+                                        <div class="form-row">
+                                            <div class="form-group">
+                                                <label for="empresa-nombre">Nombre *</label>
+                                                <input type="text" id="empresa-nombre" name="nombre" placeholder="Nombre">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="empresa-paterno">Apellido Paterno *</label>
+                                                <input type="text" id="empresa-paterno" name="paterno" placeholder="Apellido Paterno">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-row">
+                                            <div class="form-group">
+                                                <label for="empresa-materno">Apellido Materno *</label>
+                                                <input type="text" id="empresa-materno" name="materno" placeholder="Apellido Materno">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="empresa-fecha-nac">Fecha de Nacimiento *</label>
+                                                <input type="date" id="empresa-fecha-nac" name="fecha_nac" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-row">
+                                            <div class="form-group">
+                                                <label for="empresa-rfc">RFC *</label>
+                                                <input type="text" id="empresa-rfc" name="rfc" placeholder="RFC" maxlength="13">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="empresa-curp">CURP *</label>
+                                                <input type="text" id="empresa-curp" name="curp" placeholder="CURP" maxlength="18">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Campos Persona Moral -->
+                                    <div id="campos-pm2" style="display: none;">
+                                        <h4>Datos Persona Moral</h4>
+                                        <div class="form-row">
+                                            <div class="form-group">
+                                                <label for="empresa-razon-social">Razón Social *</label>
+                                                <input type="text" id="empresa-razon-social" name="razon_social" placeholder="Nombre legal de la empresa">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="empresa-fecha-constitucion">Fecha de Constitución *</label>
+                                                <input type="date" id="empresa-fecha-constitucion" name="fecha_constitucion" required>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Campos Generales -->
+                                    <h4>Datos Generales</h4>
                                     <div class="form-row">
                                         <div class="form-group">
-                                            <label for="cliente-tipo">Tipo de Cliente *</label>
-                                            <select id="cliente-tipo" name="tipo_cliente" required>
+                                            <label for="empresa-nacionalidad">Nacionalidad *</label>
+                                            <select id="empresa-nacionalidad" name="nacionalidad" required>
                                                 <option value="">Seleccionar</option>
-                                                <option value="pf">Persona Física Mexicana</option>
-                                                <option value="pf-extranjera">Persona Física Extranjera</option>
-                                                <option value="pm">Persona Moral Mexicana</option>
-                                                <option value="pm-extranjera">Persona Moral Extranjera</option>
-                                                <option value="fideicomiso">Fideicomiso</option>
-                                                <option value="pep">Persona Políticamente Expuesta</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="cliente-nombre">Nombre/Razón Social *</label>
-                                            <input type="text" id="cliente-nombre" name="nombre" required placeholder="Nombre completo o razón social">
-                                        </div>
-                                    </div>
-
-                                    <div class="form-row">
-                                        <div class="form-group">
-                                            <label for="cliente-rfc">RFC/CURP *</label>
-                                            <input type="text" id="cliente-rfc" name="rfc" required placeholder="RFC o CURP">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="cliente-fecha-nac">Fecha Nacimiento/Constitución *</label>
-                                            <input type="date" id="cliente-fecha-nac" name="fecha_nacimiento" required>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-row">
-                                        <div class="form-group">
-                                            <label for="cliente-nacionalidad">Nacionalidad *</label>
-                                            <select id="cliente-nacionalidad" name="nacionalidad" required>
                                                 <option value="mexico">México</option>
-                                                <option value="otro">Otro país</option>
+                                                <option value="extranjera">Extranjera</option>
                                             </select>
                                         </div>
                                         <div class="form-group">
-                                            <label for="cliente-tipo-relacion">Tipo de Relación *</label>
-                                            <select id="cliente-tipo-relacion" name="tipo_relacion" required>
-                                                <option value="">Seleccionar</option>
-                                                <option value="ocasional">Solo Cliente (Ocasional)</option>
-                                                <option value="continua">Relación de Negocios (Continua)</option>
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-row">
-                                        <div class="form-group">
-                                            <label for="cliente-email">Email *</label>
-                                            <input type="email" id="cliente-email" name="email" required placeholder="cliente@email.com">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="cliente-telefono">Teléfono *</label>
-                                            <input type="tel" id="cliente-telefono" name="telefono" required placeholder="+52 1234567890">
+                                            <label for="empresa-email">Email *</label>
+                                            <input type="email" id="empresa-email" name="email" required placeholder="contacto@empresa.com">
                                         </div>
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="cliente-actividad-economica">Actividad Económica *</label>
-                                        <textarea id="cliente-actividad-economica" name="actividad_economica" rows="3" placeholder="Descripción de la ocupación o actividad principal"></textarea>
+                                        <label for="empresa-telefono">Teléfono *</label>
+                                        <input type="tel" id="empresa-telefono" name="telefono" required placeholder="+52 1234567890">
                                     </div>
                                 </div>
 
                                 <!-- Tab: KYC Base -->
                                 <div class="tab-content" id="tab-cliente-kyc">
-                                    <h4>Datos de Identificación - KYC Universal</h4>
-                                    
-                                    <div class="form-row">
-                                        <div class="form-group">
-                                            <label for="cliente-identificacion">Documento de Identificación *</label>
-                                            <select id="cliente-identificacion" name="identificacion" required>
-                                                <option value="">Seleccionar</option>
-                                                <option value="ine">INE / Cédula</option>
-                                                <option value="pasaporte">Pasaporte</option>
-                                                <option value="licencia">Licencia de Conducir</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="cliente-num-identificacion">Número de Documento *</label>
-                                            <input type="text" id="cliente-num-identificacion" name="num_identificacion" required placeholder="Número del documento">
-                                        </div>
-                                    </div>
-
-                                    <div class="form-row">
-                                        <div class="form-group">
-                                            <label for="cliente-fecha-expedicion">Fecha de Expedición</label>
-                                            <input type="date" id="cliente-fecha-expedicion" name="fecha_expedicion">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="cliente-fecha-vencimiento">Fecha de Vencimiento</label>
-                                            <input type="date" id="cliente-fecha-vencimiento" name="fecha_vencimiento">
-                                        </div>
-                                    </div>
-
-                                    <h4 style="margin-top: 20px;">Domicilio</h4>
-                                    <div class="form-row">
-                                        <div class="form-group">
-                                            <label for="cliente-domicilio-calle">Calle y Número *</label>
-                                            <input type="text" id="cliente-domicilio-calle" name="domicilio_calle" required placeholder="Avenida Principal 123">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="cliente-domicilio-departamento">Apto/Depto</label>
-                                            <input type="text" id="cliente-domicilio-departamento" name="domicilio_departamento" placeholder="Piso 5, Oficina 505">
-                                        </div>
-                                    </div>
-
-                                    <div class="form-row">
-                                        <div class="form-group">
-                                            <label for="cliente-domicilio-ciudad">Ciudad/Municipio *</label>
-                                            <input type="text" id="cliente-domicilio-ciudad" name="domicilio_ciudad" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="cliente-domicilio-estado">Estado *</label>
-                                            <select id="cliente-domicilio-estado" name="domicilio_estado" required>
-                                                <option value="">Seleccionar</option>
-                                                <option value="cdmx">Ciudad de México</option>
-                                                <option value="estado-mexico">Estado de México</option>
-                                                <option value="otro">Otro</option>
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-row">
-                                        <div class="form-group">
-                                            <label for="cliente-domicilio-postal">Código Postal *</label>
-                                            <input type="text" id="cliente-domicilio-postal" name="domicilio_postal" required maxlength="5">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="cliente-domicilio-pais">País *</label>
-                                            <select id="cliente-domicilio-pais" name="domicilio_pais" required>
-                                                <option value="mexico">México</option>
-                                                <option value="otro">Otro</option>
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                    <h4 style="margin-top: 20px;">Origen de Recursos</h4>
+                                    <h4>Domicilio</h4>
                                     <div class="form-group">
-                                        <label for="cliente-origen-recursos">Descripción del Origen de Recursos *</label>
-                                        <textarea id="cliente-origen-recursos" name="origen_recursos" rows="3" placeholder="Explique el origen de los recursos que utilizará"></textarea>
+                                        <label for="cliente-calle">Calle *</label>
+                                        <input type="text" id="cliente-calle" name="calle" required placeholder="Nombre de la calle">
                                     </div>
 
-                                    <h4 style="margin-top: 20px;">Beneficiario Controlador</h4>
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label for="cliente-entre-calles">Entre Calles *</label>
+                                            <input type="text" id="cliente-entre-calles" name="entre_calles" required placeholder="Entre calles">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="cliente-numero-exterior">Número Exterior *</label>
+                                            <input type="text" id="cliente-numero-exterior" name="numero_exterior" required placeholder="Número exterior">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label for="cliente-numero-interior">Número Interior</label>
+                                            <input type="text" id="cliente-numero-interior" name="numero_interior" placeholder="Número interior">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="cliente-codigo-postal">Código Postal *</label>
+                                            <input type="text" id="cliente-codigo-postal" name="codigo_postal" required placeholder="06500" maxlength="5">
+                                        </div>
+                                    </div>
+
                                     <div class="form-group">
-                                        <label>
-                                            <input type="radio" name="tiene-bc" value="si"> Tiene Beneficiario Controlador
-                                        </label>
-                                        <label style="display: block; margin-top: 10px;">
-                                            <input type="radio" name="tiene-bc" value="no"> No tiene Beneficiario Controlador
-                                        </label>
+                                        <label for="cliente-referencias">Referencias</label>
+                                        <textarea id="cliente-referencias" name="referencias" rows="2" placeholder="Referencias adicionales del domicilio"></textarea>
                                     </div>
 
-                                    <div id="bc-fields" style="display: none;">
-                                        <div class="form-row">
-                                            <div class="form-group">
-                                                <label>Nombre del Beneficiario *</label>
-                                                <input type="text" id="cliente-bc-nombre" name="bc_nombre" placeholder="Nombre completo">
-                                            </div>
-                                            <div class="form-group">
-                                                <label>RFC/CURP *</label>
-                                                <input type="text" id="cliente-bc-rfc" name="bc_rfc" placeholder="RFC o CURP">
-                                            </div>
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label for="cliente-asentamiento">Asentamiento (Catálogo) *</label>
+                                            <select id="cliente-asentamiento" name="asentamiento" required>
+                                                <option value="">Seleccionar Asentamiento</option>
+                                            </select>
                                         </div>
-                                        <div class="form-row">
-                                            <div class="form-group">
-                                                <label>% Participación *</label>
-                                                <input type="number" id="cliente-bc-participacion" name="bc_participacion" min="0" max="100" placeholder="25">
-                                            </div>
-                                            <div class="form-group">
-                                                <label>Tipo de Control *</label>
-                                                <select id="cliente-bc-tipo-control" name="bc_tipo_control">
-                                                    <option value="">Seleccionar</option>
-                                                    <option value="propiedad">Por Propiedad</option>
-                                                    <option value="control">Por Control</option>
-                                                    <option value="ambos">Propiedad y Control</option>
-                                                </select>
-                                            </div>
+                                        <div class="form-group">
+                                            <label for="cliente-ciudad">Ciudad *</label>
+                                            <select id="cliente-ciudad" name="ciudad" required>
+                                                <option value="">Seleccionar Ciudad</option>
+                                            </select>
                                         </div>
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label for="cliente-municipio">Municipio *</label>
+                                            <select id="cliente-municipio" name="municipio" required>
+                                                <option value="">Seleccionar Municipio</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="cliente-estado">Estado *</label>
+                                            <select id="cliente-estado" name="estado" required>
+                                                <option value="">Seleccionar Estado</option>
+                                                <option value="1">Ciudad de México</option>
+                                                <option value="2">Estado de México</option>
+                                                <option value="3">Jalisco</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="cliente-pais">País *</label>
+                                        <select id="cliente-pais" name="pais" required>
+                                            <option value="1">México</option>
+                                        </select>
+                                    </div>
+
+                                    <h4>Origen de Recursos</h4>
+                                    <div class="form-group">
+                                        <label for="cliente-origen-recursos">Origen de Recursos (Catálogo) *</label>
+                                        <select id="cliente-origen-recursos" name="origen_recursos" required>
+                                            <option value="">Seleccionar Origen de Recursos</option>
+                                            <option value="salario">Salario / Ingresos por empleo</option>
+                                            <option value="negocio">Ingresos de negocio propio</option>
+                                            <option value="inversion">Rendimientos de inversión</option>
+                                            <option value="herencia">Herencia o donativo</option>
+                                            <option value="venta-activos">Venta de bienes o activos</option>
+                                            <option value="prestamo">Préstamo bancario</option>
+                                            <option value="otros">Otros ingresos</option>
+                                        </select>
                                     </div>
                                 </div>
 
                                 <!-- Tab: KYC Reforzada -->
                                 <div class="tab-content" id="tab-cliente-kyc-reforzada">
-                                    <h4>Medidas Reforzadas (DDR - Debida Diligencia Reforzada)</h4>
-                                    <div class="info-box">
-                                        <p><strong>Se aplica KYC Reforzada cuando:</strong></p>
-                                        <ul>
-                                            <li>Cliente es Persona Políticamente Expuesta (PEP)</li>
-                                            <li>Extranjero sin residencia habitual</li>
-                                            <li>Opera en efectivo significativo</li>
-                                            <li>Utiliza terceros o representantes inusuales</li>
-                                            <li>Estructuras jurídicas complejas</li>
-                                        </ul>
+                                    <h4>Tipo de Beneficiario Controlador</h4>
+                                    <div class="form-group">
+                                        <label for="cliente-tipo-beneficiario">Tipo *</label>
+                                        <select id="cliente-tipo-beneficiario" name="tipo_beneficiario" required>
+                                            <option value="">Seleccionar</option>
+                                            <option value="pf">Persona Física</option>
+                                            <option value="pm">Persona Moral</option>
+                                        </select>
                                     </div>
 
-                                    <div class="form-row">
-                                        <div class="form-group">
-                                            <label for="cliente-ddr-aplica">¿Aplica DDR (KYC Reforzada)? *</label>
-                                            <select id="cliente-ddr-aplica" name="ddr_aplica" required>
-                                                <option value="">Seleccionar</option>
-                                                <option value="no">No</option>
-                                                <option value="si">Sí</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="cliente-ddr-motivo">Motivo de la DDR</label>
-                                            <select id="cliente-ddr-motivo" name="ddr_motivo">
-                                                <option value="">Seleccionar</option>
-                                                <option value="pep">PEP Nacional</option>
-                                                <option value="pep-extranjera">PEP Extranjera</option>
-                                                <option value="sin-residencia">Extranjero sin residencia</option>
-                                                <option value="efectivo">Operaciones en efectivo</option>
-                                                <option value="terceros">Uso de terceros/representantes</option>
-                                                <option value="estructura-compleja">Estructura jurídica compleja</option>
-                                                <option value="otro">Otro</option>
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                    <div id="ddr-campos" style="display: none;">
-                                        <div class="form-group">
-                                            <label for="cliente-ddr-justificacion">Justificación de la Medida Reforzada *</label>
-                                            <textarea id="cliente-ddr-justificacion" name="ddr_justificacion" rows="4" placeholder="Explique por qué se aplica DDR"></textarea>
-                                        </div>
-
-                                        <h4>Información Financiera Ampliada</h4>
+                                    <!-- Campos Persona Física Beneficiario -->
+                                    <div id="cliente-campos-pf-beneficiario" style="display: none;">
+                                        <h4>Datos Persona Física</h4>
                                         <div class="form-row">
                                             <div class="form-group">
-                                                <label for="cliente-ingresos-anuales">Ingresos Anuales Estimados *</label>
-                                                <input type="number" id="cliente-ingresos-anuales" name="ingresos_anuales" placeholder="100000">
+                                                <label for="cliente-beneficiario-nombre">Nombre *</label>
+                                                <input type="text" id="cliente-beneficiario-nombre" name="beneficiario_nombre" placeholder="Nombre">
                                             </div>
                                             <div class="form-group">
-                                                <label for="cliente-patrimonio-estimado">Patrimonio Estimado *</label>
-                                                <input type="number" id="cliente-patrimonio-estimado" name="patrimonio_estimado" placeholder="500000">
+                                                <label for="cliente-beneficiario-paterno">Apellido Paterno *</label>
+                                                <input type="text" id="cliente-beneficiario-paterno" name="beneficiario_paterno" placeholder="Apellido Paterno">
                                             </div>
                                         </div>
 
-                                        <div class="form-group">
-                                            <label for="cliente-estructura-propiedad">Descripción de Estructura de Propiedad *</label>
-                                            <textarea id="cliente-estructura-propiedad" name="estructura_propiedad" rows="4" placeholder="Detalle la estructura de propiedad, fideicomisos, etc."></textarea>
+                                        <div class="form-row">
+                                            <div class="form-group">
+                                                <label for="cliente-beneficiario-materno">Apellido Materno *</label>
+                                                <input type="text" id="cliente-beneficiario-materno" name="beneficiario_materno" placeholder="Apellido Materno">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="cliente-beneficiario-fecha-nac">Fecha de Nacimiento *</label>
+                                                <input type="date" id="cliente-beneficiario-fecha-nac" name="beneficiario_fecha_nac" required>
+                                            </div>
                                         </div>
 
-                                        <div class="form-group">
-                                            <label for="cliente-mapeo-bc">Mapeo Detallado de Beneficiarios Controladores *</label>
-                                            <textarea id="cliente-mapeo-bc" name="mapeo_bc" rows="4" placeholder="Detalle todos los beneficiarios controladores identificados"></textarea>
+                                        <div class="form-row">
+                                            <div class="form-group">
+                                                <label for="cliente-beneficiario-rfc">RFC *</label>
+                                                <input type="text" id="cliente-beneficiario-rfc" name="beneficiario_rfc" placeholder="RFC" maxlength="13">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="cliente-beneficiario-curp">CURP *</label>
+                                                <input type="text" id="cliente-beneficiario-curp" name="beneficiario_curp" placeholder="CURP" maxlength="18">
+                                            </div>
                                         </div>
                                     </div>
 
-                                    <div class="form-row">
-                                        <div class="form-group">
-                                            <label for="cliente-clasificacion-riesgo">Clasificación de Riesgo *</label>
-                                            <select id="cliente-clasificacion-riesgo" name="clasificacion_riesgo" required>
-                                                <option value="">Seleccionar</option>
-                                                <option value="bajo">Bajo</option>
-                                                <option value="medio">Medio</option>
-                                                <option value="alto">Alto</option>
-                                            </select>
+                                    <!-- Campos Persona Moral Beneficiario -->
+                                    <div id="cliente-campos-pm-beneficiario" style="display: none;">
+                                        <h4>Datos Persona Moral</h4>
+                                        <div class="form-row">
+                                            <div class="form-group">
+                                                <label for="cliente-beneficiario-razon-social">Razón Social *</label>
+                                                <input type="text" id="cliente-beneficiario-razon-social" name="beneficiario_razon_social" placeholder="Nombre legal de la empresa">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="cliente-beneficiario-fecha-constitucion">Fecha de Constitución *</label>
+                                                <input type="date" id="cliente-beneficiario-fecha-constitucion" name="beneficiario_fecha_constitucion" required>
+                                            </div>
                                         </div>
                                     </div>
+
+                                    <h4>Información del Beneficiario</h4>
+     
+
+                                    <h4>Beneficiarios Controladores</h4>
+                                    <div id="cliente-beneficiarios-list">
+                                        <div class="cliente-beneficiario-item">
+                                            <h5>Beneficiario #1</h5>
+                                            <div class="form-row">
+                                                <div class="form-group">
+                                                    <label>% Capital *</label>
+                                                    <input type="number" class="cliente-beneficiario-pct-capital" placeholder="0-100" min="0" max="100" required>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>% Capital Indirecto</label>
+                                                    <input type="number" class="cliente-beneficiario-pct-capital-indirecto" placeholder="0-100" min="0" max="100">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-row">
+                                                <div class="form-group">
+                                                    <label>% Voto</label>
+                                                    <input type="number" class="cliente-beneficiario-pct-voto" placeholder="0-100" min="0" max="100">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>
+                                                        <input type="checkbox" class="cliente-beneficiario-control-efectivo">
+                                                        ¿Es Control Efectivo?
+                                                    </label>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label>Descripción del Mecanismo de Control</label>
+                                                <textarea class="cliente-beneficiario-desc-mecanismo" rows="2" placeholder="Describa el mecanismo de control"></textarea>
+                                            </div>
+
+                                            <div class="form-row">
+                                                <div class="form-group">
+                                                    <label>Doc. Identificación</label>
+                                                    <input type="file" class="cliente-beneficiario-doc-id" accept=".pdf,.jpg,.jpeg,.png">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Doc. Control</label>
+                                                    <input type="file" class="cliente-beneficiario-doc-control" accept=".pdf,.jpg,.jpeg,.png">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label>Doc. Comprobante Domicilio</label>
+                                                <input type="file" class="cliente-beneficiario-doc-domicilio" accept=".pdf,.jpg,.jpeg,.png">
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label>Fecha Validación Documentos</label>
+                                                <input type="date" class="cliente-beneficiario-fecha-validacion">
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label>
+                                                    <input type="checkbox" class="cliente-beneficiario-es-extranjero">
+                                                    ¿Es Extranjero?
+                                                </label>
+                                            </div>
+                                            <div class="form-group" id="tipo-estancia-group" style="display:list-item;">
+                                                        <label for="cliente-tipo-estancia">Tipo de Estancia Migratoria *</label>
+                                                        <select id="cliente-tipo-estancia" name="tipo_estancia">
+                                                            <option value="">Seleccionar</option>
+                                                            <option value="1">Residente Temporal</option>
+                                                            <option value="2">Residente Permanente</option>
+                                                            <option value="3">Visitante</option>
+                                                            <option value="4">Otra</option>
+                                                        </select>
+                                            </div>
+                                            <div class="cliente-beneficiario-extranjero" style="display: none;">
+                                                
+                                                <div class="form-row">
+                                                    <div>
+                                                        
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Fecha Inicio Estancia</label>
+                                                        <input type="date" class="cliente-beneficiario-fecha-estancia">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Doc. Migratorio</label>
+                                                        <input type="file" class="cliente-beneficiario-doc-migratorio" accept=".pdf,.jpg,.jpeg,.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label>
+                                                    <input type="checkbox" class="cliente-beneficiario-representa">
+                                                    ¿Actúa Mediante Representante?
+                                                </label>
+                                            </div>
+
+                                            <div class="cliente-beneficiario-representante-info" style="display: none;">
+                                                <div class="form-row">
+                                                    <div class="form-group">
+                                                        <label>Nombre del Representante *</label>
+                                                        <input type="text" class="cliente-beneficiario-representante-nombre" placeholder="Nombre del representante">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Doc. Identificación</label>
+                                                        <input type="file" class="cliente-beneficiario-representante-doc" accept=".pdf,.jpg,.jpeg,.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label>
+                                                    <input type="checkbox" class="cliente-beneficiario-es-pep">
+                                                    ¿Es PEP?
+                                                </label>
+                                            </div>
+
+                                            <div class="cliente-beneficiario-pep-info" style="display: none;">
+                                                <div class="form-row">
+                                                    <div class="form-group">
+                                                        <label>Cargo</label>
+                                                        <input type="text" class="cliente-beneficiario-pep-cargo" placeholder="Cargo">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Fecha Inclusión</label>
+                                                        <input type="date" class="cliente-beneficiario-pep-fecha">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-row">
+                                                <div class="form-group">
+                                                    <label>Fecha Verificación de Datos</label>
+                                                    <input type="date" class="cliente-beneficiario-fecha-verificacion">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Método de Verificación</label>
+                                                    <input type="text" class="cliente-beneficiario-metodo-verificacion" placeholder="Método utilizado">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label>Verificado Por</label>
+                                                <input type="text" class="cliente-beneficiario-verificado-por" placeholder="Nombre de quien verificó">
+                                            </div>
+
+                                            <button type="button" class="btn-small btn-delete btn-remove-cliente-beneficiario">Remover</button>
+                                        </div>
+                                    </div>
+                                    <button type="button" class="btn btn-secondary" id="btn-add-cliente-beneficiario">+ Agregar Beneficiario</button>
                                 </div>
 
                                 <!-- Tab: Documentos -->
                                 <div class="tab-content" id="tab-cliente-documentos">
-                                    <h4>Documentos Requeridos - Expediente KYC</h4>
-                                    <p><strong>Plazo de Conservación:</strong> 5 años (Art. 25 LFPIORPI)</p>
+                                    <h4>Documentos Requeridos</h4>
+                                    <div class="checklist-group">
+                                        <label>
+                                            <input type="checkbox" name="doc-identificacion"> Identificación oficial
+                                            <input type="file" class="doc-file" accept=".pdf,.jpg,.jpeg,.png">
+                                        </label>
+                                        <label>
+                                            <input type="checkbox" name="doc-comprobante-domicilio"> Comprobante de domicilio (< 3 meses)
+                                            <input type="file" class="doc-file" accept=".pdf,.jpg,.jpeg,.png">
+                                        </label>
+                                        <label>
+                                            <input type="checkbox" name="doc-rfc"> Cédula de RFC
+                                            <input type="file" class="doc-file" accept=".pdf,.jpg,.jpeg,.png">
+                                        </label>
+                                        <label>
+                                            <input type="checkbox" name="doc-comprobante-ingresos"> Comprobante de ingresos
+                                            <input type="file" class="doc-file" accept=".pdf,.jpg,.jpeg,.png">
+                                        </label>
+                                        <label>
+                                            <input type="checkbox" name="doc-Referencias-patrimoniales"> Referencias patrimoniales
+                                            <input type="file" class="doc-file" accept=".pdf,.jpg,.jpeg,.png">
+                                        </label>
+                                    </div>
 
-                                    <div class="documentos-checklist">
-                                        <div class="documento-item">
-                                            <label>
-                                                <input type="checkbox" name="doc-identificacion" class="doc-check">
-                                                <span>📄 Identificación Oficial (INE/Pasaporte)</span>
-                                            </label>
-                                            <input type="file" class="doc-file" accept=".pdf,.jpg,.png" style="display: none;">
+                                    <h4>Proceso de Validación</h4>
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label for="cliente-fecha-validacion">Fecha Validación Documentos</label>
+                                            <input type="date" id="cliente-fecha-validacion" name="fecha_validacion">
                                         </div>
-                                        <div class="documento-item">
-                                            <label>
-                                                <input type="checkbox" name="doc-domicilio" class="doc-check">
-                                                <span>🏠 Comprobante de Domicilio (< 3 meses)</span>
-                                            </label>
-                                            <input type="file" class="doc-file" accept=".pdf,.jpg,.png" style="display: none;">
-                                        </div>
-                                        <div class="documento-item">
-                                            <label>
-                                                <input type="checkbox" name="doc-rfc" class="doc-check">
-                                                <span>📋 RFC / CURP</span>
-                                            </label>
-                                            <input type="file" class="doc-file" accept=".pdf,.jpg,.png" style="display: none;">
-                                        </div>
-                                        <div class="documento-item">
-                                            <label>
-                                                <input type="checkbox" name="doc-acta-constitutiva" class="doc-check">
-                                                <span>📜 Acta Constitutiva (PM)</span>
-                                            </label>
-                                            <input type="file" class="doc-file" accept=".pdf,.jpg,.png" style="display: none;">
-                                        </div>
-                                        <div class="documento-item">
-                                            <label>
-                                                <input type="checkbox" name="doc-poderes" class="doc-check">
-                                                <span>⚖️ Poderes / Representación</span>
-                                            </label>
-                                            <input type="file" class="doc-file" accept=".pdf,.jpg,.png" style="display: none;">
-                                        </div>
-                                        <div class="documento-item">
-                                            <label>
-                                                <input type="checkbox" name="doc-bc-identificacion" class="doc-check">
-                                                <span>🔏 Identificación del Beneficiario Controlador</span>
-                                            </label>
-                                            <input type="file" class="doc-file" accept=".pdf,.jpg,.png" style="display: none;">
-                                        </div>
-                                        <div class="documento-item">
-                                            <label>
-                                                <input type="checkbox" name="doc-origen-recursos" class="doc-check">
-                                                <span>💰 Soporte del Origen de Recursos</span>
-                                            </label>
-                                            <input type="file" class="doc-file" accept=".pdf,.jpg,.png" style="display: none;">
+                                        <div class="form-group">
+                                            <label for="cliente-fecha-verificacion">Fecha Verificación Datos</label>
+                                            <input type="date" id="cliente-fecha-verificacion" name="fecha_verificacion">
                                         </div>
                                     </div>
 
-                                    <h4 style="margin-top: 20px;">Documentos Adicionales</h4>
-                                    <div class="form-group">
-                                        <label for="cliente-otros-documentos">Otros Documentos Relevantes</label>
-                                        <input type="file" id="cliente-otros-documentos" name="otros_documentos" multiple accept=".pdf,.jpg,.png">
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label for="cliente-metodo-verificacion">Método de Verificación</label>
+                                            <input type="text" id="cliente-metodo-verificacion" name="metodo_verificacion" placeholder="Método utilizado">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="cliente-verificado-por">Verificado Por</label>
+                                            <input type="text" id="cliente-verificado-por" name="verificado_por" placeholder="Nombre de quien verificó">
+                                        </div>
                                     </div>
                                 </div>
 

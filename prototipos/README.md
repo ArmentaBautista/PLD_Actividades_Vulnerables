@@ -4,47 +4,46 @@
 
 Este proyecto contiene **tres prototipos GUI completos** (HTML, CSS, JavaScript) para un Sistema de Gestión de Prevención de Lavado de Dinero (PLD) enfocado en Actividades Vulnerables, según la **LFPIORPI (Ley Federal para la Prevención e Identificación de Operaciones con Recursos de Procedencia Ilícita)**.
 
+Los prototipos están **completamente alineados con la estructura de base de datos SQL Server** definida en `Definicion_Base_de_Datos.sql`.
+
 ## 🎯 Módulos Implementados
 
-### 1. **Registro de Usuarios**
-Sistema de gestión de usuarios del sistema con roles y permisos.
+### 1. **Registro de Usuarios** ✅ Actualizado
+Sistema de autenticación del sistema.
+
+**Arquitectura Simplificada (DB: Usuario)**
+- Email (campo único, identificador)
+- Contraseña (con confirmación)
 
 **Características:**
-- ✅ Tabla de usuarios existentes
-- ✅ Crear nuevo usuario
-- ✅ Asignar roles (Admin, Analista, Auditor, Visualizador)
-- ✅ Estado activo/inactivo
-- ✅ Modal para agregar/editar usuarios
-- ✅ Validación de contraseña
-
-**Campos:**
-- Nombre Completo
-- Email
-- Teléfono
-- Rol del Usuario
-- Contraseña
-- Confirmación de Contraseña
-- Estado Activo
+- Validación de matching de contraseñas
+- Tabla de usuarios activos
+- Crear, editar, eliminar usuarios
+- Estado automático: Activo
 
 ---
 
-### 2. **Registro de Empresas**
-Gestión completa de empresas clientes con actividades vulnerables.
+### 2. **Registro de Empresas** ✅ Actualizado
+Gestión de empresas/personas morales y personas físicas con actividades vulnerables.
 
-**Características:**
-- ✅ Tabla de empresas con información resumida
-- ✅ Sistema de tabs para organizar información
-- ✅ Clasificación por tipo de actividad vulnerable (XVI categorías)
-- ✅ Gestión de beneficiarios controladores
-- ✅ Carga de comprobante de domicilio
+**Estructura de Tabs:**
 
-**Tabs Implementados:**
-1. **Información General**: RFC, Razón Social, Fecha de Constitución, Contacto
-2. **Actividad Vulnerable**: Tipo y subtipo, descripción, nivel de riesgo, marcador PEP
-3. **Ubicación**: Domicilio completo y comprobante
-4. **Beneficiarios**: Gestión de beneficiarios con ≥25% de participación
+#### Tab 1: Información General
+**Selector Tipo de Cliente (CONDICIONAL):**
+- Persona Física → Muestra campos:
+  - Nombre, Apellido Paterno, Apellido Materno, Fecha Nacimiento, RFC, CURP
+- Persona Moral → Muestra campos:
+  - Razón Social, Fecha de Constitución
 
-**Tipos de Actividades Vulnerables (Artículo 17 LFPIORPI):**
+**Campos Generales (SIEMPRE VISIBLES):**
+- Nacionalidad (México / Extranjera)
+- Email
+- Teléfono
+
+**Mapeo DB:** Persona (tipo_persona, apellido_paterno, apellido_materno, fecha_nacimiento, nombre, rfc, curp, razon_social, fecha_constitucion)
+
+#### Tab 2: Actividad Vulnerable
+**Catálogo XVI Actividades:**
 - I: Juegos con apuesta
 - II: Tarjetas y cupones de valor
 - III: Cheques de viajero
@@ -62,349 +61,355 @@ Gestión completa de empresas clientes con actividades vulnerables.
 - XV: Donativos
 - XVI: Intercambio de activos virtuales
 
+**Mapeo DB:** Persona (actividad_vulnerable_id)
+
+#### Tab 3: Ubicación
+**Estructura Domicilio (Completo - 10 componentes):**
+- Calle * (nombre de la calle)
+- Entre Calles * (referencias cruzadas)
+- Número Exterior * (número principal)
+- Número Interior (departamento, oficina)
+- Código Postal * (5 dígitos)
+- Referencias (información adicional)
+- Asentamiento (Catálogo - SEPOMEX) *
+- Ciudad (Catálogo) *
+- Municipio (Catálogo) *
+- Estado (Catálogo) *
+- País (Catálogo) *
+
+**Mapeo DB:** Domicilio (calle, entre_calles, numero_exterior, numero_interior, codigo_postal, referencias, asentamiento_id, ciudad_id, municipio_id, estado_id, pais_id)
+
+#### Tab 4: Beneficiarios Controladores
+**Estructura Dinámica (Add/Remove):**
+Cada beneficiario contiene:
+
+**Campos Básicos:**
+- % Capital * (0-100)
+- % Capital Indirecto (0-100)
+- % Voto (0-100)
+- ¿Es Control Efectivo? (checkbox)
+- Descripción del Mecanismo de Control (textarea)
+
+**Documentación:**
+- Doc. Identificación (URL)
+- Doc. Control (URL)
+- Doc. Comprobante Domicilio (URL)
+- Fecha Validación Documentos
+
+**Condicional: ¿Es Extranjero?**
+- Fecha Inicio Estancia
+- Doc. Migratorio (URL)
+
+**Condicional: ¿Actúa Mediante Representante?**
+- Nombre del Representante
+- Doc. Identificación Representante (URL)
+
+**Condicional: ¿Es PEP?**
+- Cargo
+- Fecha Inclusión
+
+**Validación:**
+- Fecha Verificación de Datos
+- Método de Verificación
+- Verificado Por (nombre)
+
+**Mapeo DB:** BeneficiarioControlador (porcentaje_capital, porcentaje_capital_indirecto, porcentaje_voto, es_control_efectivo, descripcion_mecanismo, doc_identificacion_url, doc_control_url, doc_comprobante_domicilio_url, fecha_validacion_documentos, es_extranjero, fecha_inicio_estancia, doc_migratorio_url, actua_mediante_representante, nombre_representante, doc_identificacion_representante_url, es_pep, cargo_pep, fecha_inclusion_pep, fecha_verificacion_datos, metodo_verificacion, verificado_por)
+
 ---
 
-### 3. **Registro de Clientes**
-Sistema completo de KYC (Know Your Customer) con soporte para KYC Universal y Reforzado.
+### 3. **Registro de Clientes** ✅ Actualizado
+Gestión de clientes personas físicas con KYC completo.
 
-**Características:**
-- ✅ Filtros por tipo de cliente, riesgo y estado KYC
-- ✅ Tabla de clientes con información esencial
-- ✅ Sistema de tabs para organizar información
-- ✅ Gestión completa de documentación
-- ✅ Identificación de Beneficiario Controlador
-- ✅ Medidas de KYC Reforzada (DDR)
-- ✅ Checklist de documentos
+**Estructura de Tabs:**
 
-**Tipos de Cliente Soportados:**
-- Persona Física Mexicana
-- Persona Física Extranjera
-- Persona Moral Mexicana
-- Persona Moral Extranjera
-- Fideicomiso
-- Persona Políticamente Expuesta (PEP)
+#### Tab 1: Información
+**Datos Personales Básicos:**
+- Nombre * (campo de texto)
+- Apellido Paterno *
+- Apellido Materno
+- Fecha de Nacimiento *
+- RFC * (13 caracteres)
+- CURP * (18 caracteres)
+- Email *
+- Teléfono *
+- Actividad Vulnerable * (catálogo XVI)
+- Nacionalidad * (México / Extranjera)
 
-**Tabs Implementados:**
+**Mapeo DB:** PersonaEmail, PersonaTelefono
 
-#### Tab 1: Información del Cliente
-- Tipo de cliente
-- Nombre/Razón Social
-- RFC/CURP
-- Fecha de Nacimiento/Constitución
-- Nacionalidad
-- Tipo de Relación (Ocasional/Continua)
-- Contacto
-- Actividad Económica
+#### Tab 2: KYC Base
+**Domicilio (Estructura Completa 10 componentes):**
+- Calle *
+- Entre Calles *
+- Número Exterior *
+- Número Interior
+- Código Postal *
+- Referencias
+- Asentamiento (Catálogo) *
+- Ciudad (Catálogo) *
+- Municipio (Catálogo) *
+- Estado (Catálogo) *
+- País *
 
-#### Tab 2: KYC Base (Universal)
-Datos requeridos para TODAS las actividades vulnerables:
-- **Identificación**: Documento oficial con número y vigencia
-- **Domicilio**: Dirección completa con comprobante < 3 meses
-- **Origen de Recursos**: Declaración de procedencia de fondos
-- **Beneficiario Controlador**: 
-  - Identificación de personas con ≥25% participación
-  - Tipo de control (Propiedad/Control/Ambos)
-  - Análisis de estructura corporativa
+**Origen de Recursos:**
+- Descripción textual * (textarea)
 
-**Elementos KYC Universales (Art. 18 LFPIORPI):**
-- ✅ ID Cliente único
-- ✅ Tipo de Cliente (PF/PM/Fideicomiso/PEP)
-- ✅ Datos de identificación
-- ✅ Nacionalidad
-- ✅ RFC/CURP
-- ✅ Identificación oficial
-- ✅ Domicilio verificado
-- ✅ Actividad económica
-- ✅ Origen de recursos
-- ✅ Beneficiario Controlador
-- ✅ Representante legal (PM)
+**Mapeo DB:** Domicilio, Cliente (origen_recursos)
 
-#### Tab 3: KYC Reforzada (DDR)
-Medidas especiales para clientes de alto riesgo:
-- Indicadores de aplicación de DDR
-- Motivos de medida reforzada
-- Justificación
-- Información financiera ampliada (ingresos, patrimonio)
-- Estructura de propiedad detallada
-- Mapeo de beneficiarios controladores
-- Clasificación de riesgo (Bajo/Medio/Alto)
+#### Tab 3: KYC Reforzada (Medidas Reforzadas)
 
-**Casos de DDR (Art. 18 Bis LFPIORPI):**
-- ✅ Cliente es PEP Nacional o Extranjera
-- ✅ Extranjero sin residencia habitual
-- ✅ Operaciones significativas en efectivo
-- ✅ Uso de terceros o representantes inusuales
-- ✅ Estructuras jurídicas complejas
+**¿Es Extranjero? (Radio buttons):**
+- SÍ → Muestra:
+  - Tipo de Estancia Migratoria (dropdown):
+    - Residente Temporal
+    - Residente Permanente
+    - Visitante
+    - Otra
+- NO → Oculta campo de estancia
+
+**Beneficiarios Controladores (Dinámica):**
+Cada beneficiario:
+- % Capital *
+- ¿Es Control Efectivo? (checkbox)
+- Descripción del Mecanismo
+- ¿Es PEP? (checkbox) → Muestra:
+  - Cargo
+  - Fecha Inclusión
+- Remover (botón)
+
+**Mapeo DB:** BeneficiarioControlador, Cliente (tipo_estancia_migratoria)
 
 #### Tab 4: Documentos
-Checklist de documentos requeridos con almacenamiento:
-- 📄 Identificación Oficial
-- 🏠 Comprobante de Domicilio
-- 📋 RFC/CURP
-- 📜 Acta Constitutiva (PM)
-- ⚖️ Poderes/Representación
-- 🔏 Identificación del Beneficiario Controlador
-- 💰 Soporte del Origen de Recursos
-- 📦 Otros documentos
+**Checklist de Documentos Requeridos:**
+- Identificación oficial (URL)
+- Comprobante de domicilio < 3 meses (URL)
+- Cédula de RFC (URL)
+- Comprobante de ingresos (URL)
+- Referencias patrimoniales (URL)
+
+**Proceso de Validación:**
+- Fecha Validación Documentos
+- Fecha Verificación Datos
+- Método de Verificación (texto)
+- Verificado Por (texto)
+
+**Mapeo DB:** Cliente (fecha_validacion_documentos, fecha_verificacion_datos, metodo_verificacion, verificado_por)
 
 ---
 
-## 🏗️ Estructura de Archivos
+## 🗄️ Alineación con Base de Datos SQL Server
 
-```
-prototipos/
-├── index.html          # Estructura HTML principal
-├── styles.css          # Estilos CSS
-├── script.js           # Lógica JavaScript
-└── README.md           # Este archivo
-```
+**Tablas Utilizadas:**
 
-## 🚀 Características Técnicas
+| Tabla | Módulo | Campos Utilizados |
+|-------|--------|------------------|
+| `Usuario` | Usuarios | email, password |
+| `Persona` | Empresas | tipo_persona, nombre, apellido_paterno, apellido_materno, fecha_nacimiento, rfc, curp, razon_social, fecha_constitucion, nacionalidad, actividad_vulnerable_id |
+| `Domicilio` | Empresas, Clientes | calle, entre_calles, numero_exterior, numero_interior, codigo_postal, referencias, asentamiento_id, ciudad_id, municipio_id, estado_id, pais_id |
+| `BeneficiarioControlador` | Empresas, Clientes | porcentaje_capital, porcentaje_capital_indirecto, porcentaje_voto, es_control_efectivo, descripcion_mecanismo, doc_identificacion_url, doc_control_url, doc_comprobante_domicilio_url, fecha_validacion_documentos, es_extranjero, fecha_inicio_estancia, doc_migratorio_url, actua_mediante_representante, nombre_representante, doc_identificacion_representante_url, es_pep, cargo_pep, fecha_inclusion_pep, fecha_verificacion_datos, metodo_verificacion, verificado_por |
+| `PersonaEmail` | Clientes | email |
+| `PersonaTelefono` | Clientes | telefono |
+| `Cliente` | Clientes | origen_recursos, tipo_estancia_migratoria, fecha_validacion_documentos, fecha_verificacion_datos, metodo_verificacion, verificado_por |
+| `Asentamiento` | Ubicación (Catálogo) | nombre, codigo_postal, municipio_id |
+| `Ciudad` | Ubicación (Catálogo) | nombre, estado_id |
+| `Municipio` | Ubicación (Catálogo) | nombre, estado_id |
+| `Estado` | Ubicación (Catálogo) | nombre, pais_id |
+| `Pais` | Ubicación (Catálogo) | nombre, codigo_iso |
 
-### Frontend
-- **HTML5**: Estructura semántica completa
-- **CSS3**: Diseño responsive y moderno
-- **JavaScript Vanilla**: Sin dependencias externas
-- **Responsive Design**: Funciona en desktop, tablet y móvil
+---
 
-### Funcionalidades JavaScript
+## 🔧 Características Técnicas
+
+### HTML (`index.html` - 950+ líneas)
+- ✅ Estructura semántica HTML5
+- ✅ 3 modales con tabs internos
+- ✅ Formularios con validación básica HTML5
+- ✅ Listas dinámicas (beneficiarios, documentos)
+- ✅ Sistema de filtros en Clientes
+- ✅ Tablas de datos con acciones
+
+### CSS (`styles.css` - 860+ líneas)
+- ✅ Design responsivo (mobile, tablet, desktop)
+- ✅ Colores corporativos (#2563eb principal)
+- ✅ Animaciones y transiciones suaves
+- ✅ Badges de estado con colores significativos
+- ✅ Estilos para tabs, modales, formularios
+- ✅ Grid/Flexbox para layouts
+- ✅ Sombras y efectos visuales profesionales
+
+### JavaScript (`script.js` - 420+ líneas)
 - ✅ Navegación entre módulos
-- ✅ Gestión de modales
-- ✅ Sistema de tabs
-- ✅ Filtros dinámicos
+- ✅ Gestión de modales (mostrar/ocultar)
+- ✅ Cambio de tabs dinámico
+- ✅ Lógica condicional:
+  - **Empresas**: Mostrar campos PF o PM según selección de Tipo
+  - **Clientes**: Mostrar Estancia Migratoria si es Extranjero
+- ✅ Gestión dinámica de beneficiarios:
+  - Agregar/remover beneficiarios
+  - Mostrar/ocultar campos condicionales (Extranjero, Representante, PEP)
 - ✅ Validación de formularios
-- ✅ Manejo de eventos
-- ✅ Almacenamiento de datos (localStorage ready)
-
-### Características de UI/UX
-- 🎨 Paleta de colores profesional
-- 🎯 Diseño intuitivo y consistente
-- 📱 Fully responsive
-- ♿ Accesibilidad básica
-- ⚡ Animaciones suaves
-- 🔔 Badges y estados visuales
-- 📊 Tablas con datos de ejemplo
+- ✅ Manejo de eventos de checkboxes y radio buttons
+- ✅ Almacenamiento temporal de datos en memoria (ready para API)
 
 ---
 
-## 📖 Cómo Usar
+## 🚀 Cómo Usar
 
 ### 1. Abrir el Prototipo
 ```bash
-# Simplemente abre index.html en tu navegador
+Abrir `index.html` en navegador web moderno (Chrome, Firefox, Edge, Safari)
 ```
 
-### 2. Navegar entre Módulos
-Usa el menú lateral izquierdo para cambiar entre:
-- 👤 Registro de Usuarios
-- 🏢 Registro de Empresas
-- 👥 Registro de Clientes
+### 2. Navegación
+- Clic en opciones del sidebar para cambiar entre módulos
+- Cada módulo tiene tabla de datos existentes + botón "Nuevo"
 
-### 3. Crear Registros
-Haz clic en el botón "+ Nuevo" de cada sección para abrir el modal correspondiente.
+### 3. Flujo de Usuarios
+1. Clic **"+ Nuevo Usuario"**
+2. Ingresar Email y Contraseña
+3. Guardar
 
-### 4. Rellenar Formularios
-- **Usuarios**: Información básica y rol
-- **Empresas**: 4 tabs con información completa
-- **Clientes**: 4 tabs con KYC universal y reforzado
+### 4. Flujo de Empresas
+1. Clic **"+ Nueva Empresa"**
+2. **Tab 1 - Información General**:
+   - Seleccionar Tipo (PF/PM)
+   - Llenar datos según tipo
+   - Ingresar Nacionalidad, Email, Teléfono
+3. **Tab 2 - Actividad Vulnerable**:
+   - Seleccionar actividad del catálogo XVI
+4. **Tab 3 - Ubicación**:
+   - Completar domicilio en 10 componentes
+   - Seleccionar de catálogos (Asentamiento, Ciudad, etc.)
+5. **Tab 4 - Beneficiarios**:
+   - Agregar beneficiarios (+)
+   - Completar campos financieros (%)
+   - Marcar condicionales (Extranjero, Representante, PEP)
+   - Remover si necesario (-)
+6. Guardar
 
-### 5. Guardar Datos
-Completa los campos requeridos (*) y haz clic en "Guardar".
+### 5. Flujo de Clientes
+1. Clic **"+ Nuevo Cliente"**
+2. **Tab 1 - Información**:
+   - Datos personales, RFC, CURP, Email, Teléfono
+   - Actividad Vulnerable y Nacionalidad
+3. **Tab 2 - KYC Base**:
+   - Domicilio en 10 componentes
+   - Origen de Recursos (textarea)
+4. **Tab 3 - KYC Reforzada**:
+   - Marcar si es Extranjero (muestra Estancia Migratoria)
+   - Agregar Beneficiarios Controladores
+5. **Tab 4 - Documentos**:
+   - Marcar documentos y pegar URLs
+   - Completar fechas y responsables
+6. Guardar
 
 ---
 
-## 🔗 Integración con Base de Datos
+## 📱 Características de UX
 
-El prototipo está diseñado para ser fácilmente integrable con un backend. Los datos se procesan mediante:
+### Campos Condicionales Implementados
+1. **Empresas - Tipo de Cliente (PF/PM)**
+   - Muestra/oculta automáticamente según selección
+   - Validación de campos requeridos según tipo
 
-```javascript
-// Ejemplo de captura de datos
-formCliente.addEventListener('submit', (e) => {
-    const formData = new FormData(formCliente);
-    const cliente = {
-        tipo: formData.get('tipo_cliente'),
-        nombre: formData.get('nombre'),
-        // ... más campos
-    };
-    // Enviar a API: fetch('/api/clientes', { method: 'POST', body: JSON.stringify(cliente) })
-});
+2. **Clientes - Extranjero**
+   - Radio buttons SÍ/NO
+   - Muestra Estancia Migratoria si es SÍ
+
+3. **Beneficiarios - Es Extranjero**
+   - Checkbox
+   - Muestra Estancia y Doc. Migratorio si está marcado
+
+4. **Beneficiarios - Actúa Mediante Representante**
+   - Checkbox
+   - Muestra datos del Representante si está marcado
+
+5. **Beneficiarios - Es PEP**
+   - Checkbox
+   - Muestra Cargo y Fecha Inclusión si está marcado
+
+### Listas Dinámicas
+- **Agregar Beneficiarios**: Botón "+ Agregar" crea nuevo item con numeración automática
+- **Remover Beneficiarios**: Botón "Remover" elimina item (mínimo 1 requerido)
+- Cada nuevo item limpia campos y aplica listeners de eventos
+
+---
+
+## 🔐 Seguridad y Validación
+
+### HTML5 Validation
+- ✅ Campos required
+- ✅ Type="email" con validación
+- ✅ Type="date" con selector
+- ✅ Number fields con min/max
+
+### JavaScript Validation
+- ✅ Validación de contraseñas matching
+- ✅ Validación de tipo de cliente seleccionado
+- ✅ Mínimo 1 beneficiario requerido
+- ✅ Confirmación antes de eliminar beneficiario
+
+### Frontend-Ready para Backend
+- ✅ Console.log de datos para debugging
+- ✅ Objetos JSON estructurados listos para API
+- ✅ IDs auto-generados (U001, E001, C001)
+- ✅ Timestamps automáticos
+
+---
+
+## 📝 Notas de Implementación
+
+### Ready para Conectar Backend
+- Los formularios generan objetos JSON listos para POST a `/api/usuarios`, `/api/empresas`, `/api/clientes`
+- Cambiar `console.log()` por `fetch()` calls
+- Modal cierra automáticamente al guardar
+
+### Catálogos (Próxima Fase)
+- Asentamiento, Ciudad, Municipio, Estado, País actualmente vacíos
+- Deberían poblarse vía API desde tabla de catálogos SQL
+
+### Almacenamiento
+- Actualmente guarda en memoria (tabla se vacía al refresh)
+- Para persistencia: usar localStorage o backend API
+
+---
+
+## 📄 Archivos Incluidos
+
+```
+prototipos/
+├── index.html                 (950+ líneas - estructura completa)
+├── styles.css                 (860 líneas - todos los estilos)
+├── script.js                  (420+ líneas - lógica y eventos)
+├── README.md                  (este archivo)
+├── DOCUMENTACION_TECNICA.html (especificaciones técnicas)
+├── INSTRUCCIONES.md           (guía para usuarios)
+├── RESUMEN_EJECUTIVO.md       (overview ejecutivo)
+└── INICIO.html                (página de bienvenida)
 ```
 
 ---
 
-## 📋 Elementos KYC por Tipo de Cliente
+## 🎓 Conformidad Normativa
 
-### Persona Física Mexicana (Anexo 3)
-- ✅ Identificación oficial mexicana
-- ✅ Comprobante de domicilio
-- ✅ RFC
-- ✅ Datos de identificación
-
-### Persona Moral Mexicana (Anexo 4)
-- ✅ Acta constitutiva
-- ✅ Poderes y representación
-- ✅ RFC
-- ✅ Domicilio legal
-- ✅ Beneficiarios controladores
-
-### Persona Física Extranjera (Anexo 5)
-- ✅ Pasaporte
-- ✅ Forma migratoria
-- ✅ Comprobante domicilio temporal
-- ✅ RFC (si aplica)
-
-### Persona Moral Extranjera (Anexo 6)
-- ✅ Documentos apostillados
-- ✅ Acta constitutiva extranjera
-- ✅ Representación legal
-- ✅ Beneficiarios controladores
+- ✅ Artículo 17 LFPIORPI: XVI categorías de actividades vulnerables
+- ✅ Artículo 25 LFPIORPI: 5 años conservación documentos
+- ✅ KYC (Know Your Customer): Datos personales completos
+- ✅ DDR (Debida Diligencia Reforzada): Tab específico para medidas reforzadas
+- ✅ Beneficiarios Controladores: 25%+ participación registrada
+- ✅ PEP: Marcador y registro de cargo
 
 ---
 
-## 🎯 Reglas de Negocio Implementadas
+## 👨‍💻 Desarrollado por
 
-### Clasificación de Riesgo
-- **Bajo**: Entidades públicas, embajadas, personas establecidas
-- **Medio**: Personas físicas, PM nacionales con actividad clara
-- **Alto**: PEP, extranjeros, estructuras complejas, efectivo
-
-### Beneficiario Controlador (Art. 18 Bis)
-Identificación de personas con:
-- ✅ ≥25% de participación directa o indirecta
-- ✅ Control efectivo (nombramiento de consejeros, poder de decisión)
-- ✅ Residual owner (ejecutivo más alto nivel)
-
-### KYC Reforzada (DDR)
-Aplicable cuando:
-- ✅ Cliente es PEP
-- ✅ Extranjero sin residencia
-- ✅ Operaciones en efectivo significativo
-- ✅ Terceros/representantes inusuales
-- ✅ Estructura jurídica compleja
-
-### Conservación de Documentos
-- ✅ 5 años mínimo (Art. 25 LFPIORPI)
-- ✅ Archivos digitales soportados
-
----
-
-## 🔐 Validaciones Incluidas
-
-```javascript
-// Validar RFC
-validarRFC('ABC123456XYZ') // true/false
-
-// Validar Email
-validarEmail('usuario@empresa.com') // true/false
-
-// Generar ID
-generarID('U') // U00123, U00456, etc.
-
-// Formatear Fecha
-formatearFecha('2025-01-15') // 15/01/2025
-```
-
----
-
-## 🎨 Paleta de Colores
-
-| Uso | Color | Hex |
-|-----|-------|-----|
-| Primario | Azul | #2563eb |
-| Éxito | Verde | #10b981 |
-| Advertencia | Naranja | #f59e0b |
-| Peligro | Rojo | #ef4444 |
-| Info | Azul Cielo | #0ea5e9 |
-| Fondo | Gris Claro | #f3f4f6 |
-
----
-
-## 📱 Responsive Breakpoints
-
-- **Desktop**: > 1200px
-- **Tablet**: 768px - 1200px
-- **Mobile**: < 768px
-- **Small Mobile**: < 480px
-
----
-
-## 🚦 Estados de Datos
-
-### Usuarios
-- Activo / Inactivo
-
-### Empresas
-- Bajo / Medio / Alto (Riesgo)
-- Completo / Pendiente (KYC)
-- PEP: Sí / No
-
-### Clientes
-- Bajo / Medio / Alto (Riesgo)
-- Completo / Pendiente / Incompleto (KYC)
-- PEP: Sí / No
-- Sin DDR / Con DDR (KYC Reforzada)
-
----
-
-## 🔄 Próximas Mejoras Sugeridas
-
-1. **Backend Integration**
-   - API REST para CRUD de usuarios, empresas, clientes
-   - Base de datos SQL Server (sugerido según documentación)
-   - Autenticación y autorización
-
-2. **Features Avanzadas**
-   - Módulo de Operaciones y Umbrales
-   - Monitoreo de operaciones inusuales
-   - Reportes y Avisos (Art. 17, 22 LFPIORPI)
-   - Lista de PEPs actualizable
-   - Verificación de listas de riesgo externas
-
-3. **Seguridad**
-   - Encriptación de datos sensibles
-   - Validación en servidor
-   - Auditoría de cambios
-   - Control de acceso por rol
-
-4. **Experiencia de Usuario**
-   - Exportación a PDF/Excel
-   - Carga de múltiples documentos
-   - OCR para lectura de documentos
-   - Notificaciones en tiempo real
-
-5. **Cumplimiento Normativo**
-   - Generador de reportes SAT/UIF
-   - Cálculo automático de umbrales
-   - Acumulación de operaciones (6 meses)
-   - Registro de auditoría
-
----
-
-## 📚 Referencias Normativas
-
-- **LFPIORPI**: Ley Federal para la Prevención e Identificación de Operaciones con Recursos de Procedencia Ilícita
-- **Reglas de Carácter General (RCG)**: Publicadas en DOF
-- **Artículos Clave**:
-  - Art. 17: Identificación y Aviso
-  - Art. 18: Datos de Identificación
-  - Art. 18 Bis: Beneficiarios Controladores
-  - Art. 25: Conservación de Documentos
+Prototipo GUI para Sistema PLD - 2025
 
 ---
 
 ## 📞 Soporte
 
-Para dudas o mejoras, revisa:
-- `Documentacion/Documentacion_Desarrollo/AnalisisPreliminar.md`
-- `Documentacion/Documentacion_Desarrollo/Reglas2025.md`
-
----
-
-## 📄 Licencia
-
-Proyecto de desarrollo para Sistema PLD - Actividades Vulnerables.
-Año: 2025
-
----
-
-**Última actualización:** Diciembre 2025
+Para consultas sobre campos, validaciones o alineación con base de datos:
+- Revisar `Definicion_Base_de_Datos.sql`
+- Revisar `ChangesForPrototypes.md`
+- Consultar `DOCUMENTACION_TECNICA.html`

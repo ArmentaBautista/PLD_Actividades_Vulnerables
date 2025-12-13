@@ -69,17 +69,17 @@ I. Identificar y conocer de manera directa a las personas Clientes o Usuarias co
 
 ### Elementos KYC que son iguales para TODAS las Actividades Vulnerables
 
--- Identificación del Cliente o Usuario (art. 18, fracc. II LFPIORPI).
--- Identificación del Beneficiario Controlador (art. 3, fracc. III LFPIORPI).
--- Integración de expediente con:
--- Identificación oficial.
--- Comprobante de domicilio.
--- RFC y acta constitutiva para personas morales.
--- Poderes o documentos que acrediten representación.
--- Verificación de información.
--- Conservación 5 años (art. 25 LFPIORPI).
--- Medidas reforzadas cuando el cliente es Persona Políticamente Expuesta (PEP).
--- Clasificación de riesgo (Reglas de Carácter General, Capítulo II).
+- Identificación del Cliente o Usuario (art. 18, fracc. II LFPIORPI).
+- Identificación del Beneficiario Controlador (art. 3, fracc. III LFPIORPI).
+- Integración de expediente con:
+- Identificación oficial.
+- Comprobante de domicilio.
+- RFC y acta constitutiva para personas morales.
+- Poderes o documentos que acrediten representación.
+- Verificación de información.
+- Conservación 5 años (art. 25 LFPIORPI).
+- Medidas reforzadas cuando el cliente es Persona Políticamente Expuesta (PEP).
+- Clasificación de riesgo (Reglas de Carácter General, Capítulo II).
 
 ### TABLA GENERAL DE DATOS BASE – KYC UNIVERSAL
 | Campo | Descripción | Obligatorio | Fundamento |
@@ -103,20 +103,22 @@ I. Identificar y conocer de manera directa a las personas Clientes o Usuarias co
 
 ---
 ### KYC reforzado según nivel de riesgo (independientemente de la actividad)
-Cuando el cliente es:
--- PEP
--- Extranjero sin residencia habitual
--- Opera en efectivo
--- Utiliza terceros o representantes inusuales
--- Estructuras jurídicas complejas
-Se debe aplicar debida diligencia reforzada (DDR):
+Se debe aplicar debida diligencia reforzada (DDR) cuando el cliente es:
+- PEP
+- Extranjero sin residencia habitual
+- Opera en efectivo
+- Utiliza terceros o representantes inusuales
+- Estructuras jurídicas complejas
+
 Preguntas adicionales.
--- Documentación financiera.
--- Origen de recursos.
--- Verificación más profunda del beneficiario controlador.
+- Documentación financiera.
+- Origen de recursos.
+- Verificación más profunda del beneficiario controlador.
+
 ### TABLA DE DATOS – KYC REFORZADA
+
 | Componente KYC | Medida Reforzada | Objetivo de PLD/FT |
-|----------------|------------------|---------------------|
+| --- | --- | --- |
 | Identificación | Datos adicionales (actividad, propósito, ingresos) | Conocer a detalle al cliente |
 | Verificación | Comprobación documental ampliada | Validar información |
 | Origen de recursos | Declaración + soporte documental | Evitar recursos ilícitos |
@@ -128,8 +130,9 @@ Preguntas adicionales.
 
 ### TABLAS POR ACTIVIDAD
 1. Juegos con apuesta (Fracción I)
+
 | Campo | Descripción |
-|--------|-------------|
+|---|---|
 | Tipo de operación | Venta de fichas / boletos / apuestas / premios |
 | Monto de la operación | Cantidad total pagada o jugada |
 | Medio de pago | Efectivo / transferencia / tarjeta |
@@ -140,6 +143,7 @@ Preguntas adicionales.
 | Acumulación 6 meses | Total acumulado del cliente |
 
 2. Tarjetas prepagadas, cupones, monederos (Fracción II)
+
 | Campo | Descripción |
 |--------|-------------|
 | Tipo de tarjeta / cupón | Prepagada / monedero / vale |
@@ -149,6 +153,7 @@ Preguntas adicionales.
 | Frecuencia de recargas | Para acumulación |
 
 3. Cheques de viajero (Fracción III)
+
 | Campo | Descripción |
 |--------|-------------|
 | Emisor del cheque | Marca / institución |
@@ -172,11 +177,6 @@ Preguntas adicionales.
 
 
 ---
-
-
-
-
-
 
 ```
 JCA ¿CÓMO SE IDENTIFICA?
@@ -230,6 +230,106 @@ Todos deben registrarse.
 lleven a cabo con Personas Políticamente Expuestas *Por lo tanto considerar la indentificación de las PEPs nacionales o extrajeras*. **Si forman parte de un grupo empresarial, considerar sucursales y filiales**
 - Puede no ser obligatorio tener el expediente al momento del registro, sino posterior e incluso al momento de la operaciíon. **Manejar el apartado de expediente como un componente independiente del catálogo de clientes**
 
+## Beneficiario Controlador
+🟦 1. Identificación básica del Beneficiario Controlador
+
+|Campo	|Tipo	|Obligatorio	|Descripción|
+|---|---|---|---|
+|bc_id	|UUID	|Sí	|Identificador interno único|
+|client_id	|UUID	|Sí	|Relación con la tabla CLIENTES|
+|nombre	|VARCHAR	|Sí	|Nombre completo sin abreviaturas|
+|primer_apellido	|VARCHAR	|Sí	|
+|segundo_apellido	|VARCHAR	|No	|
+|fecha_nacimiento	|DATE	|Sí	|Verificación edad / CURP|
+|nacionalidad	|VARCHAR	|Sí	|Primer indicador de riesgo país|
+|pais_residencia_fiscal	|VARCHAR	|Sí	|Obligatorio según estándares OCDE|
+|curp	|VARCHAR	|No	|Si es PF mexicana|
+|rfc	|VARCHAR	|No	|Si aplica|
+
+🟩 2. Datos de control / participación (núcleo del concepto BC)
+
+Conforme a Art. 18 Bis LFPIORPI se debe registrar:
+
+- Participación en capital
+- Participación en derechos de voto
+- Cualquier otro mecanismo de control efectivo
+
+|Campo	|Tipo	|Obligatorio	|Descripción|
+|---|---|---|---|
+|tipo_control	|ENUM(PROPORCIONAL, VOTO, FIDEICOMISO, ACCIONISTAS, OTRO)	|Sí	|Mecanismo de control|
+|porcentaje_capital	|DECIMAL(5,2)	|Sí	|Porcentaje directo|
+|porcentaje_capital_indirecto	|DECIMAL(5,2)	|No	|A través de otras entidades|
+|porcentaje_voto	|DECIMAL(5,2)	|No	|Puede ser distinto al capital|
+|es_control_efectivo	|BOOLEAN	|Sí	|True si ejerce control indirecto (aunque no supere 25%)|
+|descripcion_mecanismo	|TEXT	|Sí	|Explicación textual del mecanismo|
+
+🟥 3. Documentos que acreditan el control (obligatorios)
+
+Art. 12 fracción VII RCG exige conservar documentación soporte.
+
+|Campo	|Tipo	|Obligatorio	|Descripción|
+|---|---|---|---|
+|documento_identificacion_url	|VARCHAR	|Sí	INE/Pasaporte/Cédula|
+|documento_identificacion_hash	|VARCHAR	|Sí	Integridad del archivo|
+|documento_control_url	|VARCHAR	|Sí	Accionista: libro de socios / derecho: contrato|
+|documento_control_hash	|VARCHAR	|Sí	Integridad del archivo|
+|comprobante_domicilio_url	|VARCHAR	|No	Si aplica|
+|fecha_documentos	|DATE	|Sí	Fecha en que se obtuvieron|
+
+🟨 4. Condición migratoria (cuando es extranjero)
+
+Conforme a Anexo 5 / 6 de las RCG.
+
+|Campo	|Tipo	|Obligatorio	|Descripción|
+|---|---|---|---|
+|es_extranjero	|BOOLEAN	|Sí	|
+|tipo_estancia	|VARCHAR	|No	Visitante, Residente Temporal, Permanente|
+|documento_migratorio_url	|VARCHAR	|No	Pasaporte / visa / FM3/FM2|
+
+🟧 5. Datos del representante (si actúa mediante apoderado)
+
+Regla: Si un BC actúa a través de apoderado, deben identificarse ambos.
+
+|Campo	|Tipo	|Obligatorio	|Descripción|
+|---|---|---|---|
+|actua_mediante_representante	|BOOLEAN	|Sí	|
+|representante_nombre	|VARCHAR	|No	|
+|representante_identificacion_url	|VARCHAR	|No	|
+
+🟫 6. Información sobre PEP (Persona Políticamente Expuesta)
+
+Conforme a Reglas de carácter general (riesgo reforzado).
+
+|Campo	|Tipo	|Obligatorio	|Descripción|
+|---|---|---|---|
+|es_pep	|BOOLEAN	|Sí	|Señal de riesgo alto|
+|cargo_pep	|VARCHAR	|No	|Cargo, país, periodo|
+|fecha_inclusion_pep	|DATE	|No	|
+
+🟪 7. Validaciones, verificaciones y trazabilidad
+
+Cumpliendo Art. 12 fracción VIII RCG.
+
+|Campo	|Tipo	|Obligatorio	|Descripción|
+|---|---|---|---|
+|fecha_verificacion	|TIMESTAMP	|Sí	|Fecha de validación documental
+|metodo_verificacion	|VARCHAR	|Sí	|Presencial, remota, biométrica
+|verificado_por	|UUID	|Sí	|Usuario interno
+|fecha_actualizacion	|TIMESTAMP	|Sí	|Ultima modificación
+|estatus_registro	|ENUM(ACTIVO, INACTIVO)	|Sí	|Para histórico|
+|observaciones	|TEXT	|No	|
+
+🧩 8. Campos recomendados para auditoría y reportes
+
+|Campo	|Tipo	|Obligatorio	|Descripción|
+|---|---|---|---|
+|ip_registro	|VARCHAR	|No	|Trazabilidad tecnológica|
+|sistema_origen	|VARCHAR	|No	|Módulo o API que generó el registro|
+|id_cadena_control	|UUID	|No	|Para clientes con estructuras corporativas complejas|
+
+
+
+
 ---
 # Funcionalidad: Operaciones
 ---
@@ -274,7 +374,7 @@ JCA Considerar niveles de seguimiento, tal que se notifiquen de manera resaltada
 
 ---
 
-# Funcionalidad: Avisos e Informes
+## Funcionalidad: Avisos e Informes
 ---
 ## Contexto
 
@@ -289,7 +389,7 @@ JCA Considerar niveles de seguimiento, tal que se notifiquen de manera resaltada
 
 ---
 
-#Funcionalidad: Evaluación con Enfoque Basado en Riesgos
+# Funcionalidad: Evaluación con Enfoque Basado en Riesgos
 ---
 ## Contexto
 DOF 16-07-2025
