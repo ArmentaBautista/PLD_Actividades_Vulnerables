@@ -3,8 +3,9 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE OR ALTER PROCEDURE [dbo].[ObtenerDocumentoKYC]
-    @DocumentoId INT,
+CREATE OR ALTER PROCEDURE [dbo].[ListarDocumentoKYCporEmpresaIdClienteId]
+    @EmpresaId INT,
+    @ClienteId INT,
     @RETURN_MESSAGE VARCHAR(MAX) OUTPUT
 AS
 BEGIN
@@ -30,7 +31,8 @@ BEGIN
             UsuarioBajaId,
             EstaActivo
         FROM [dbo].[DocumentoKYC]
-        WHERE DocumentoId = @DocumentoId;
+        WHERE EmpresaId = @EmpresaId AND ClienteId = @ClienteId;
+
 
         RETURN 0;
     END TRY

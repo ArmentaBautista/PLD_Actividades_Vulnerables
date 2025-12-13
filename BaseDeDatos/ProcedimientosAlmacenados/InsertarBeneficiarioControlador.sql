@@ -3,8 +3,8 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE PROCEDURE [dbo].[InsertarBeneficiarioControlador]
-    @IdEmpresa INT,
+CREATE OR ALTER PROCEDURE [dbo].[InsertarBeneficiarioControlador]
+    @EmpresaId INT,
     @PersonaId INT,
     @ClienteId INT = NULL,
     @IdTipoControl INT,
@@ -38,7 +38,7 @@ BEGIN
 
     BEGIN TRY
         INSERT INTO [dbo].[BeneficiarioControlador] (
-            IdEmpresa,
+            EmpresaId,
             PersonaId,
             ClienteId,
             IdTipoControl,
@@ -64,7 +64,7 @@ BEGIN
             UsuarioAltaId
         )
         VALUES (
-            @IdEmpresa,
+            @EmpresaId,
             @PersonaId,
             @ClienteId,
             @IdTipoControl,

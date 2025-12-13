@@ -3,7 +3,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE PROCEDURE [dbo].[InsertarDomicilio]
+CREATE OR ALTER PROCEDURE [dbo].[InsertarDomicilio]
     @EmpresaId INT,
     @Calle NVARCHAR(255),
     @EntreCalles NVARCHAR(255),

@@ -3,8 +3,8 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE PROCEDURE [dbo].[InsertarDocumentoKYC]
-    @IdEmpresa INT,
+CREATE OR ALTER PROCEDURE [dbo].[InsertarDocumentoKYC]
+    @EmpresaId INT,
     @ClienteId INT,
     @TipoDocumentoId INT,
     @Numero NVARCHAR(100) = NULL,
@@ -22,7 +22,7 @@ BEGIN
 
     BEGIN TRY
         INSERT INTO [dbo].[DocumentoKYC] (
-            IdEmpresa,
+            EmpresaId,
             ClienteId,
             TipoDocumentoId,
             Numero,
@@ -32,7 +32,7 @@ BEGIN
             UsuarioAltaId
         )
         VALUES (
-            @IdEmpresa,
+            @EmpresaId,
             @ClienteId,
             @TipoDocumentoId,
             @Numero,

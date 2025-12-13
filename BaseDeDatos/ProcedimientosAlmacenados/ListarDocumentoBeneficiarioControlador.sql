@@ -3,8 +3,8 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE OR ALTER PROCEDURE [dbo].[ObtenerDocumentoKYC]
-    @DocumentoId INT,
+CREATE OR ALTER PROCEDURE [dbo].[ListarDocumentoBeneficiarioControlador]
+    @BeneficiarioControladorId INT,
     @RETURN_MESSAGE VARCHAR(MAX) OUTPUT
 AS
 BEGIN
@@ -15,7 +15,7 @@ BEGIN
         SELECT
             DocumentoId,
             EmpresaId,
-            ClienteId,
+            BeneficiarioControladorId,
             TipoDocumentoId,
             Numero,
             Archivo,
@@ -29,8 +29,8 @@ BEGIN
             FechaBaja,
             UsuarioBajaId,
             EstaActivo
-        FROM [dbo].[DocumentoKYC]
-        WHERE DocumentoId = @DocumentoId;
+        FROM [dbo].[DocumentoBeneficiarioControlador]
+        WHERE BeneficiarioControladorId = @BeneficiarioControladorId;
 
         RETURN 0;
     END TRY

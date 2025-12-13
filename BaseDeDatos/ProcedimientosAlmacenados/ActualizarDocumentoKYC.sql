@@ -3,9 +3,9 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE PROCEDURE [dbo].[ActualizarDocumentoKYC]
+CREATE OR ALTER PROCEDURE [dbo].[ActualizarDocumentoKYC]
     @DocumentoId INT,
-    @IdEmpresa INT,
+    @EmpresaId INT,
     @ClienteId INT,
     @TipoDocumentoId INT,
     @Numero NVARCHAR(100) = NULL,
@@ -21,7 +21,7 @@ BEGIN
 
     BEGIN TRY
         UPDATE [dbo].[DocumentoKYC]
-        SET IdEmpresa = @IdEmpresa,
+        SET EmpresaId = @EmpresaId,
             ClienteId = @ClienteId,
             TipoDocumentoId = @TipoDocumentoId,
             Numero = @Numero,

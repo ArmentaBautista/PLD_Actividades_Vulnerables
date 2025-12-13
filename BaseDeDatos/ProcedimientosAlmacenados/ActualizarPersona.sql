@@ -3,7 +3,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE PROCEDURE [dbo].[ActualizarPersona]
+CREATE OR ALTER PROCEDURE [dbo].[ActualizarPersona]
     @PersonaId INT,
     @EmpresaId INT,
     @EsPersonaFisica BIT,

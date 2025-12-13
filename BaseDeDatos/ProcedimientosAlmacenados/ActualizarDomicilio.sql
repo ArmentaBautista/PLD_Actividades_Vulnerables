@@ -3,7 +3,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE PROCEDURE [dbo].[ActualizarDomicilio]
+CREATE OR ALTER PROCEDURE [dbo].[ActualizarDomicilio]
     @DomicilioId INT,
     @EmpresaId INT,
     @Calle NVARCHAR(255),

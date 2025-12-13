@@ -3,8 +3,9 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE PROCEDURE [dbo].[ObtenerBeneficiarioControlador]
-    @BeneficiarioControladorId INT,
+CREATE OR ALTER PROCEDURE [dbo].[ListarBeneficiarioControladorPorEmpresaIdClienteId]
+    @EmpresaId INT,
+    @ClienteId INT,
     @RETURN_MESSAGE VARCHAR(MAX) OUTPUT
 AS
 BEGIN
@@ -45,7 +46,8 @@ BEGIN
             UsuarioBajaId,
             EstaActivo
         FROM [dbo].[BeneficiarioControlador]
-        WHERE BeneficiarioControladorId = @BeneficiarioControladorId;
+        WHERE EmpresaId = @EmpresaId
+          AND ClienteId = @ClienteId;
 
         RETURN 0;
     END TRY

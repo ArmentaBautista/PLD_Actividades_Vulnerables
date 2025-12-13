@@ -3,7 +3,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE PROCEDURE [dbo].[ObtenerDocumentoBeneficiarioControlador]
+CREATE OR ALTER PROCEDURE [dbo].[ObtenerDocumentoBeneficiarioControlador]
     @DocumentoId INT,
     @RETURN_MESSAGE VARCHAR(MAX) OUTPUT
 AS
@@ -14,7 +14,7 @@ BEGIN
     BEGIN TRY
         SELECT
             DocumentoId,
-            IdEmpresa,
+            EmpresaId,
             BeneficiarioControladorId,
             TipoDocumentoId,
             Numero,

@@ -3,9 +3,9 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE PROCEDURE [dbo].[ActualizarDocumentoBeneficiarioControlador]
+CREATE OR ALTER PROCEDURE [dbo].[ActualizarDocumentoBeneficiarioControlador]
     @DocumentoId INT,
-    @IdEmpresa INT,
+    @EmpresaId INT,
     @BeneficiarioControladorId INT,
     @TipoDocumentoId INT,
     @Numero NVARCHAR(100) = NULL,
@@ -21,7 +21,7 @@ BEGIN
 
     BEGIN TRY
         UPDATE [dbo].[DocumentoBeneficiarioControlador]
-        SET IdEmpresa = @IdEmpresa,
+        SET EmpresaId = @EmpresaId,
             BeneficiarioControladorId = @BeneficiarioControladorId,
             TipoDocumentoId = @TipoDocumentoId,
             Numero = @Numero,

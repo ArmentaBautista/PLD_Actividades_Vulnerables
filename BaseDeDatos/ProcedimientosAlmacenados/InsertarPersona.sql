@@ -3,7 +3,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE PROCEDURE [dbo].[InsertarPersona]
+CREATE OR ALTER PROCEDURE [dbo].[InsertarPersona]
     @EmpresaId INT,
     @EsPersonaFisica BIT = 1,
     @Nombre NVARCHAR(150),

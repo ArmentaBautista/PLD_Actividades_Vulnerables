@@ -3,8 +3,8 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE PROCEDURE [dbo].[InsertarDocumentoBeneficiarioControlador]
-    @IdEmpresa INT,
+CREATE OR ALTER PROCEDURE [dbo].[InsertarDocumentoBeneficiarioControlador]
+    @EmpresaId INT,
     @BeneficiarioControladorId INT,
     @TipoDocumentoId INT,
     @Numero NVARCHAR(100) = NULL,
@@ -22,7 +22,7 @@ BEGIN
 
     BEGIN TRY
         INSERT INTO [dbo].[DocumentoBeneficiarioControlador] (
-            IdEmpresa,
+            EmpresaId,
             BeneficiarioControladorId,
             TipoDocumentoId,
             Numero,
@@ -32,7 +32,7 @@ BEGIN
             UsuarioAltaId
         )
         VALUES (
-            @IdEmpresa,
+            @EmpresaId,
             @BeneficiarioControladorId,
             @TipoDocumentoId,
             @Numero,
