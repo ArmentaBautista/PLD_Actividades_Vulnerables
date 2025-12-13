@@ -18,3 +18,4 @@ IMPORTANTE:
 - Sin transacciones explícitas
 - Update/Delete validan @@ROWCOUNT y retornan -1 con mensaje si no hubo cambios
 - Eliminación lógica (soft delete) con EstaActivo = 0
+ 
