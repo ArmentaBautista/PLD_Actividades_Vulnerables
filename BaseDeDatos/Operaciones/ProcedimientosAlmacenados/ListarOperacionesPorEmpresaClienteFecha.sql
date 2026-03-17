@@ -4,7 +4,7 @@ SET QUOTED_IDENTIFIER ON
 GO
 
 CREATE OR ALTER PROCEDURE [dbo].[ListarOperacionesPorEmpresaClienteFecha]
-    @EmpresaId INT,
+    @EmpresaActividadVulnerableId INT,
     @ClienteId INT = NULL,
     @FechaInicio DATE,
     @FechaFin DATE,
@@ -16,20 +16,20 @@ BEGIN
 
     BEGIN TRY
         SELECT
-            OperacionId,
-            EmpresaId,
+            Id,
+            EmpresaActividadVulnerableId,
             ClienteId,
             TipoOperacionId,
             TipoSubOperacionId,
-            OperacionPadreId,
+            FolioOperacion,
+            FolioOperacionPadre,
             ProductoServicioId,
             DivisaId,
             Monto,
             FechaOperacion,
             HoraOperacion,
-            FolioExterno,
             ActividadFraccion,
-            UsuarioExterno,
+            UsuarioOperacion,
             FechaAlta,
             HoraAlta,
             UsuarioAltaId,

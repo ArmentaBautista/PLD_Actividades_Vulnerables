@@ -1,0 +1,139 @@
+<mxfile host="65bd71144e">
+    <diagram id="wLL_1fqpyep9RBOmJRqQ" name="Page-1">
+        <mxGraphModel dx="1132" dy="936" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.containers.browserWindow;rSize=0;strokeColor=#666666;strokeColor2=#008cff;strokeColor3=#c4c4c4;mainText=,;recursiveResize=0;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" vertex="1" parent="1">
+                    <mxGeometry x="20" y="22" width="1050" height="930" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="Page 1" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.containers.anchor;fontSize=17;fontColor=#666666;align=left;whiteSpace=wrap;" vertex="1" parent="2">
+                    <mxGeometry x="60" y="12" width="110" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="https://www.draw.io" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.containers.anchor;rSize=0;fontSize=17;fontColor=#666666;align=left;" vertex="1" parent="2">
+                    <mxGeometry x="130" y="60" width="250" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="64" value="" style="shape=mxgraph.mockup.containers.marginRect;rectMarginTop=10;strokeColor=#666666;strokeWidth=1;dashed=0;rounded=1;arcSize=5;recursiveResize=0;html=1;whiteSpace=wrap;" vertex="1" parent="2">
+                    <mxGeometry x="60" y="142" width="860" height="698" as="geometry"/>
+                </mxCell>
+                <mxCell id="65" value="Registro de Operaciones" style="shape=rect;strokeColor=none;fillColor=#008cff;strokeWidth=1;dashed=0;rounded=1;arcSize=20;fontColor=#ffffff;fontSize=17;spacing=2;spacingTop=-2;align=left;autosize=1;spacingLeft=4;resizeWidth=0;resizeHeight=0;perimeter=none;html=1;whiteSpace=wrap;" vertex="1" parent="64">
+                    <mxGeometry x="5" width="210" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="66" value="Guardar" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;fontColor=#ffffff;mainText=;buttonStyle=round;fontSize=17;fontStyle=1;fillColor=#008cff;whiteSpace=wrap;" vertex="1" parent="64">
+                    <mxGeometry x="260" y="628" width="150" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="67" value="Cancelar" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.buttons.button;strokeColor=#666666;fontColor=#ffffff;mainText=;buttonStyle=round;fontSize=17;fontStyle=1;fillColor=#008cff;whiteSpace=wrap;" vertex="1" parent="64">
+                    <mxGeometry x="440" y="628" width="150" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" value="Tipo de Operación o Documento" style="text;html=1;align=right;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="150" y="290" width="130" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value="" style="verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;strokeWidth=1;shape=mxgraph.mockup.markup.line;strokeColor=#999999;" vertex="1" parent="1">
+                    <mxGeometry x="290" y="342" width="570" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="29" value="Dvivsa" style="text;html=1;align=right;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="200" y="512" width="80" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="21" value="Folio Padre" style="text;html=1;align=right;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="200" y="401" width="80" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="Cliente" style="text;html=1;align=right;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="200" y="220" width="80" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="" style="verticalLabelPosition=middle;shadow=0;dashed=0;align=right;html=1;verticalAlign=middle;strokeWidth=1;shape=mxgraph.mockup.markup.line;strokeColor=#999999;labelPosition=left;" vertex="1" parent="1">
+                    <mxGeometry x="290" y="270" width="570" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="33" value="" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.comboBox;strokeColor=#999999;fillColor=#ddeeff;align=left;fillColor2=#aaddff;mainText=;fontColor=#666666;fontSize=14;spacingLeft=3;labelPosition=center;verticalLabelPosition=middle;verticalAlign=middle;" vertex="1" parent="1">
+                    <mxGeometry x="290" y="220" width="230" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="17" value="Folio" style="text;html=1;align=right;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="200" y="362" width="80" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="35" value="" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.text.textBox;fontColor=#666666;align=left;fontSize=17;spacingLeft=4;spacingTop=-3;whiteSpace=wrap;strokeColor=#666666;mainText=" vertex="1" parent="1">
+                    <mxGeometry x="290" y="362" width="230" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="36" value="" style="strokeWidth=1;shadow=0;dashed=0;align=right;html=1;shape=mxgraph.mockup.forms.comboBox;strokeColor=#999999;fillColor=#ddeeff;align=left;fillColor2=#aaddff;mainText=;fontColor=#666666;fontSize=14;spacingLeft=3;textDirection=ltr;" vertex="1" parent="1">
+                    <mxGeometry x="290" y="292" width="230" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="37" value="" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.text.textBox;fontColor=#666666;align=left;fontSize=17;spacingLeft=4;spacingTop=-3;whiteSpace=wrap;strokeColor=#666666;mainText=" vertex="1" parent="1">
+                    <mxGeometry x="290" y="401" width="230" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="25" value="Producto / Servicio" style="text;html=1;align=right;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="140" y="440" width="140" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="27" value="" style="verticalLabelPosition=bottom;shadow=0;dashed=0;align=center;html=1;verticalAlign=top;strokeWidth=1;shape=mxgraph.mockup.markup.line;strokeColor=#999999;" vertex="1" parent="1">
+                    <mxGeometry x="290" y="492" width="570" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="38" value="" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.comboBox;strokeColor=#999999;fillColor=#ddeeff;align=left;fillColor2=#aaddff;mainText=;fontColor=#666666;fontSize=14;spacingLeft=3;" vertex="1" parent="1">
+                    <mxGeometry x="290" y="442" width="230" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="39" value="" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.comboBox;strokeColor=#999999;fillColor=#ddeeff;align=left;fillColor2=#aaddff;mainText=;fontColor=#666666;fontSize=14;spacingLeft=3;" vertex="1" parent="1">
+                    <mxGeometry x="290" y="512" width="230" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="40" value="Monto" style="text;html=1;align=right;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="200" y="550" width="80" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="41" value="&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; $ 10,000.00" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.text.textBox;fontColor=#666666;align=left;fontSize=16;spacingLeft=4;spacingTop=-3;whiteSpace=wrap;strokeColor=#666666;mainText=;verticalAlign=bottom;" vertex="1" parent="1">
+                    <mxGeometry x="290" y="550" width="230" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="42" value="Fecha" style="text;html=1;align=right;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="200" y="590" width="80" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="43" value="&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;dd/mm/aaaa" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.text.textBox;fontColor=#666666;align=left;fontSize=17;spacingLeft=4;spacingTop=-3;whiteSpace=wrap;strokeColor=#666666;mainText=" vertex="1" parent="1">
+                    <mxGeometry x="290" y="592" width="230" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="44" value="Loundry Money Inc" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="290" y="250" width="570" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="45" value="CL05684" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="290" y="218" width="197" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="46" value="TOR56" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="290" y="292" width="197" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="47" value="Factura" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="290" y="322" width="570" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="48" value="FAC-58965" style="text;html=1;align=right;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="380" y="362" width="140" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="49" value="PED-87965" style="text;html=1;align=right;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="380" y="401" width="140" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="50" value="PS65" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="290" y="442" width="197" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="51" value="Lavado y Planchado 100 kg" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="290" y="472" width="570" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="52" value="MX" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="290" y="512" width="197" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="53" value="Hora" style="text;html=1;align=right;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="200" y="630" width="80" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="54" value="&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; hh:mm" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.text.textBox;fontColor=#666666;align=left;fontSize=17;spacingLeft=4;spacingTop=-3;whiteSpace=wrap;strokeColor=#666666;mainText=" vertex="1" parent="1">
+                    <mxGeometry x="290" y="632" width="230" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="58" value="Actividad Fracción" style="text;html=1;align=right;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="150" y="670" width="130" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="59" value="" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.comboBox;strokeColor=#999999;fillColor=#ddeeff;align=left;fillColor2=#aaddff;mainText=;fontColor=#666666;fontSize=14;spacingLeft=3;" vertex="1" parent="1">
+                    <mxGeometry x="290" y="670" width="570" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="60" value="Actividad Ejemplo" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="290" y="670" width="540" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="61" value="Usuario Operación" style="text;html=1;align=right;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="150" y="710" width="130" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="63" value="" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.forms.comboBox;strokeColor=#999999;fillColor=#ddeeff;align=left;fillColor2=#aaddff;mainText=;fontColor=#666666;fontSize=14;spacingLeft=3;" vertex="1" parent="1">
+                    <mxGeometry x="290" y="710" width="570" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="62" value="IHR - Iván Hernandez Rivera" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;" vertex="1" parent="1">
+                    <mxGeometry x="290" y="710" width="540" height="30" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

@@ -14,7 +14,7 @@ BEGIN
     BEGIN TRY
         UPDATE [dbo].[Operacion]
         SET EstaActivo = 0
-        WHERE OperacionId = @OperacionId
+        WHERE Id = @OperacionId
           AND EstaActivo = 1;
 
         IF @@ROWCOUNT = 0

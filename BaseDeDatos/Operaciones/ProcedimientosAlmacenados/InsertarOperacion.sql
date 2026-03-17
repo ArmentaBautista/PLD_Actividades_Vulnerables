@@ -4,19 +4,19 @@ SET QUOTED_IDENTIFIER ON
 GO
 
 CREATE OR ALTER PROCEDURE [dbo].[InsertarOperacion]
-    @EmpresaId INT,
+    @EmpresaActividadVulnerableId INT,
     @ClienteId INT = NULL,
     @TipoOperacionId INT,
     @TipoSubOperacionId INT,
-    @OperacionPadreId BIGINT = NULL,
+    @FolioOperacion NVARCHAR(32) = NULL,
+    @FolioOperacionPadre NVARCHAR(32) = NULL,
     @ProductoServicioId INT,
     @DivisaId INT,
     @Monto MONEY,
     @FechaOperacion DATE,
     @HoraOperacion TIME(7),
-    @FolioExterno NVARCHAR(32) = NULL,
     @ActividadFraccion NVARCHAR(8),
-    @UsuarioExterno NVARCHAR(100) = NULL,
+    @UsuarioOperacion NVARCHAR(100) = NULL,
     @UsuarioAltaId INT,
     @OperacionId BIGINT OUTPUT,
     @RETURN_MESSAGE VARCHAR(MAX) OUTPUT
@@ -28,35 +28,35 @@ BEGIN
 
     BEGIN TRY
         INSERT INTO [dbo].[Operacion] (
-            EmpresaId,
+            EmpresaActividadVulnerableId,
             ClienteId,
             TipoOperacionId,
             TipoSubOperacionId,
-            OperacionPadreId,
+            FolioOperacion,
+            FolioOperacionPadre,
             ProductoServicioId,
             DivisaId,
             Monto,
             FechaOperacion,
             HoraOperacion,
-            FolioExterno,
             ActividadFraccion,
-            UsuarioExterno,
+            UsuarioOperacion,
             UsuarioAltaId
         )
         VALUES (
-            @EmpresaId,
+            @EmpresaActividadVulnerableId,
             @ClienteId,
             @TipoOperacionId,
             @TipoSubOperacionId,
-            @OperacionPadreId,
+            @FolioOperacion,
+            @FolioOperacionPadre,
             @ProductoServicioId,
             @DivisaId,
             @Monto,
             @FechaOperacion,
             @HoraOperacion,
-            @FolioExterno,
             @ActividadFraccion,
-            @UsuarioExterno,
+            @UsuarioOperacion,
             @UsuarioAltaId
         );
 
